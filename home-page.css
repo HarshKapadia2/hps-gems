@@ -64,3 +64,36 @@ li:hover
 {
 	background-color: #424242;
 }
+
+/* =================================================== MAIN SECTION ========================================================= */
+
+main
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5em 0;
+}
+
+#main-logo
+{
+	font-size: 90px;
+}
+
+#tag-line
+{
+	font-size: 30px;
+}
+
+/* =================================================== PRODUCTS SECTION ========================================================= */
+
+#products-section
+{
+	width: 70vw;
+	margin: auto;
+}
+
+#products-text
+{
+	font-size: 30px;
+}
