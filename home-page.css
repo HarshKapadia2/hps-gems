@@ -1,0 +1,62 @@
+*
+{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+	background-color: #fafafa;
+	color: black;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+header
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	height: 10vh;
+	background-color: #212121;
+	color: #fafafa;
+}
+
+header a
+{
+	color: #fafafa;
+
+}
+
+#logo
+{
+	font-size: 35px;
+	padding-left: 2em;
+}
+
+nav
+{
+	padding-right: 8em;
+}
+
+ul
+{
+	list-style: none;
+	display: flex;
+}
+
+li
+{
+	font-size: 18px;
+	padding: 1em 2em;
+}
+
+li:hover
+{
+	background-color: #424242;
+}
