@@ -9,6 +9,7 @@ body
 {
 	background-color: #fafafa;
 	color: black;
+	font-family: 'Roboto', sans-serif;
 }
 
 a
@@ -16,15 +17,24 @@ a
 	text-decoration: none;
 }
 
+/* =================================================== HEADER ========================================================= */
+
 header
+{
+	display: flex;
+	align-items: center;
+	background-color: #212121;
+	height: 10vh;
+	color: #fafafa;
+}
+
+#header-content
 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	
-	height: 10vh;
-	background-color: #212121;
-	color: #fafafa;
+	width: 70vw;
+	margin: auto;	
 }
 
 header a
@@ -36,12 +46,6 @@ header a
 #logo
 {
 	font-size: 35px;
-	padding-left: 2em;
-}
-
-nav
-{
-	padding-right: 8em;
 }
 
 ul
