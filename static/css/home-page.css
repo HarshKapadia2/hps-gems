@@ -99,13 +99,22 @@ main
 #products-text
 {
 	font-size: 30px;
-	padding-bottom: 1em;
 }
 
 #product-cards
 {
 	display: grid;
-	/* place-content: center center; */
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 0.5em;
+	padding: 2em 0 5em 0;
+}
+
+footer
+{
+	height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #212121;
+	color: #fafafa;
 }
