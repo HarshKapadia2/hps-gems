@@ -63,6 +63,7 @@ li
 li:hover
 {
 	background-color: #424242;
+	border-radius: 2px;
 }
 
 /* =================================================== MAIN SECTION ========================================================= */
@@ -96,4 +97,5 @@ main
 #products-text
 {
 	font-size: 30px;
+	padding-bottom: 1em;
 }
