@@ -39,13 +39,14 @@ header
 
 header a
 {
-	color: #fafafa;
+	color: #9e9e9e;
 
 }
 
 #logo
 {
 	font-size: 35px;
+	color: #fafafa;
 }
 
 ul
@@ -63,6 +64,7 @@ li
 li:hover
 {
 	background-color: #424242;
+	color: #fafafa;
 	border-radius: 2px;
 }
 
@@ -98,4 +100,12 @@ main
 {
 	font-size: 30px;
 	padding-bottom: 1em;
+}
+
+#product-cards
+{
+	display: grid;
+	/* place-content: center center; */
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 0.5em;
 }

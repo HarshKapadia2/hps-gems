@@ -19,7 +19,8 @@ template.innerHTML = `
 		img
 		{
 			width: 15em;
-			padding: 1em;
+			margin: 1em;
+			border-radius: 2px;
 		}
 
 		.product-info
@@ -30,6 +31,12 @@ template.innerHTML = `
 		.product-title
 		{
 			font-size: 18px;
+			color: #757575;
+		}
+
+		.product-title:hover
+		{
+			text-decoration: underline;
 		}
 
 		.cost
@@ -45,7 +52,7 @@ template.innerHTML = `
 		<div class="product-info">
 			<a href="#"><div class="product-title"></div></a>
 
-			<div class="cost">Rs. <span class="product-cost"></span></div>
+			<div class="cost">Rs. <span class="product-cost"></span>/piece</div>
 		</div>
 	</div>
 `;
