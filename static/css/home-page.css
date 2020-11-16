@@ -1,73 +1,3 @@
-*
-{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
-
-body
-{
-	background-color: #fafafa;
-	color: black;
-	font-family: 'Roboto', sans-serif;
-}
-
-a
-{
-	text-decoration: none;
-}
-
-/* =================================================== HEADER ========================================================= */
-
-header
-{
-	display: flex;
-	align-items: center;
-	background-color: #212121;
-	height: 10vh;
-	color: #fafafa;
-}
-
-#header-content
-{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 70vw;
-	margin: auto;	
-}
-
-header a
-{
-	color: #9e9e9e;
-
-}
-
-#logo
-{
-	font-size: 35px;
-	color: #fafafa;
-}
-
-ul
-{
-	list-style: none;
-	display: flex;
-}
-
-li
-{
-	font-size: 18px;
-	padding: 1em 2em;
-}
-
-li:hover
-{
-	background-color: #424242;
-	color: #fafafa;
-	border-radius: 2px;
-}
-
 /* =================================================== MAIN SECTION ========================================================= */
 
 main
@@ -80,12 +10,12 @@ main
 
 #main-logo
 {
-	font-size: 90px;
+	font-size: clamp(60px, 10vw, 100px);
 }
 
 #tag-line
 {
-	font-size: 30px;
+	font-size: clamp(20px, 3vw, 55px);
 }
 
 /* =================================================== PRODUCTS SECTION ========================================================= */
@@ -107,14 +37,4 @@ main
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 0.5em;
 	padding: 2em 0 5em 0;
-}
-
-footer
-{
-	height: 10vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #212121;
-	color: #fafafa;
 }
