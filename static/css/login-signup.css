@@ -1,0 +1,12 @@
+main
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5em 0;
+}
+
+#main-title
+{
+	font-size: clamp(60px, 10vw, 100px);
+}

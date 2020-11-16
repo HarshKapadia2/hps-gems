@@ -1,0 +1,40 @@
+/* =================================================== MAIN SECTION ========================================================= */
+
+main
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5em 0;
+}
+
+#main-logo
+{
+	font-size: clamp(60px, 10vw, 100px);
+}
+
+#tag-line
+{
+	font-size: clamp(20px, 3vw, 55px);
+}
+
+/* =================================================== PRODUCTS SECTION ========================================================= */
+
+#products-section
+{
+	width: 70vw;
+	margin: auto;
+}
+
+#products-text
+{
+	font-size: 30px;
+}
+
+#product-cards
+{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 0.5em;
+	padding: 2em 0 5em 0;
+}

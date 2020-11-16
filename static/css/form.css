@@ -1,0 +1,128 @@
+.form
+{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 2%;
+}
+
+.input-group
+{
+    padding: 1% 0;
+}
+
+input
+{
+    color: inherit;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1.5%;
+    font-size: 20px;
+}
+
+input:focus
+{
+    background-color: transparent;
+    outline: transparent;
+    border-bottom: 2px solid #bdbdbd;
+}
+
+input::placeholder
+{
+    color: transparent;
+}
+
+label
+{
+    color: #757575;
+    position: relative;
+    left: 0.5em;
+    top: -2em;
+	cursor: auto;
+    transition: 0.3s ease all;
+}
+
+input:focus ~ label, input:not(:placeholder-shown) ~ label
+{
+    top: -4em;
+    color: #616161;
+    font-size: 15px;
+}
+
+.button-div
+{
+    display: flex;
+    justify-content: center;
+}
+
+button
+{
+    padding: 2%;
+    width: 50%;
+    border: 1px solid;
+    border-color: #e0e0e0;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 18px;
+    background-color: #fafafa;
+    color: black;
+    box-shadow: 0 0 10px #eeeeee;
+}
+
+button:hover
+{
+    background-color: #212121;
+    color: #fafafa;
+    cursor: pointer;
+}
+
+
+/* ======================================== Media queries ============================================ */
+
+@media screen and (max-width: 1200px)
+{
+    .form
+    {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 680px)
+{
+    .form
+    {
+		width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+	.form
+	{
+		padding: 6% 4%;
+		padding-top: 15%;
+	}
+
+	.input-group
+    {
+		padding: 3% 0;
+	}
+	
+	input
+	{
+		font-size: 15px;
+	}
+
+	input:focus ~ label, input:not(:placeholder-shown) ~ label
+	{
+		top: -3.5em;
+		left: 0.1em;
+	}
+	
+    button
+    {
+        font-size: 15px;
+    }
+}
