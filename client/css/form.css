@@ -6,14 +6,15 @@
     padding: 2%;
 }
 
-.input-group
+.input-group, .textarea-group
 {
     padding: 1% 0;
 }
 
-input
+input, textarea
 {
     color: inherit;
+    font-family: inherit;
     width: 100%;
     background-color: transparent;
     border: none;
@@ -22,14 +23,14 @@ input
     font-size: 20px;
 }
 
-input:focus
+input:focus, textarea:focus
 {
     background-color: transparent;
     outline: transparent;
     border-bottom: 2px solid #bdbdbd;
 }
 
-input::placeholder
+input::placeholder, textarea::placeholder
 {
     color: transparent;
 }
@@ -47,6 +48,13 @@ label
 input:focus ~ label, input:not(:placeholder-shown) ~ label
 {
     top: -4em;
+    color: #616161;
+    font-size: 15px;
+}
+
+textarea:focus ~ label, textarea:not(:placeholder-shown) ~ label
+{
+    top: -10.5em;
     color: #616161;
     font-size: 15px;
 }
@@ -105,12 +113,12 @@ button:hover
 		padding-top: 15%;
 	}
 
-	.input-group
+	.input-group, .textarea-group
     {
 		padding: 3% 0;
 	}
 	
-	input
+	input, textarea
 	{
 		font-size: 15px;
 	}
@@ -120,6 +128,12 @@ button:hover
 		top: -3.5em;
 		left: 0.1em;
 	}
+
+	textarea:focus ~ label, textarea:not(:placeholder-shown) ~ label
+	{
+		top: -8.5em;
+		left: 0.2em;
+    }
 	
     button
     {
