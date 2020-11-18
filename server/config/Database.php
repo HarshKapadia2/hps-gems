@@ -2,12 +2,19 @@
 	class Database
 	{
 		// DB params
-		private $host = getenv("HOST");
-		private $db_name = getenv("DB_NAME");
-		private $username = getenv("USERNAME");
-		private $password = getenv("PASSWORD");
-		
+		private $host;
+		private $db_name;
+		private $username;
+		private $password;
 		private $conn;
+
+		public function __construct()
+		{
+			$this->host = getenv("DB_HOST");
+			$this->db_name = getenv("DB_NAME");
+			$this->username = getenv("DB_USERNAME");
+			$this->password = getenv("DB_PASSWORD");
+		}
 
 		// Connect DB
 		public function connect()
@@ -22,7 +29,7 @@
 			}
 			catch(PDOException $e)
 			{
-				echo "Connection error: " . $e->getMessage() . "<br>";
+				$this->conn = null;
 			}
 
 			return $this->conn;
