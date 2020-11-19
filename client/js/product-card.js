@@ -59,16 +59,15 @@ template.innerHTML = `
 
 class ProductCard extends HTMLElement
 {
-	constructor()
+	constructor({ pic_url, name, price })
 	{
 		super();
 
 		this.attachShadow({ mode: "open" });
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
-		
-		this.shadowRoot.querySelector("img").src = this.getAttribute("img");
-		this.shadowRoot.querySelector(".product-title").innerText = this.getAttribute("name");
-		this.shadowRoot.querySelector(".product-cost").innerText = this.getAttribute("price");
+		this.shadowRoot.querySelector("img").src = pic_url;
+		this.shadowRoot.querySelector(".product-title").innerText = name;
+		this.shadowRoot.querySelector(".product-cost").innerText = price;
 	}
 }
 
