@@ -1,0 +1,68 @@
+header
+{
+	display: flex;
+	align-items: center;
+	background-color: #212121;
+	height: 10vh;
+	color: #fafafa;
+}
+
+#header-content
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 70vw;
+	margin: auto;	
+}
+
+header a
+{
+	color: #9e9e9e;
+
+}
+
+#logo
+{
+	font-size: clamp(20px, 2vw, 100px);
+	color: #fafafa;
+}
+
+ul
+{
+	list-style: none;
+	display: flex;
+	align-items: center;
+}
+
+li
+{
+	font-size: 18px;
+	padding: 1em 2em;
+	margin: 0 0.5em;
+	text-align: center;
+	/* background-color: red; */
+}
+
+li:hover
+{
+	background-color: #424242;
+	color: #fafafa;
+	border-radius: 2px;
+}
+
+/* ============================================ MEDIA QUERY ========================================= */
+
+@media screen and (max-width: 600px)
+{
+	#header-content
+	{
+		width: 95vw;
+	}
+
+	li
+	{
+		padding: 0.5em 0.5em;
+		margin: 0 0.1em;
+	}
+}
