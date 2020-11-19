@@ -95,16 +95,16 @@ function sendData()
 		}
 	).then
 	(
-		(data) =>
+		(res_data) =>
 		{
-			if(data.code === 200)
+			if(res_data.code === 200)
 				window.location = "/hps-gems/client/html/login.html";
 			else
 			{
-				errors = data.errors;
+				errors = res_data.errors;
 				displayErrors();
 
-				throw new Error(`${data.code} ${data.status}: ${data.errors}`);
+				throw new Error(`${res_data.code} ${res_data.status}: ${res_data.errors}`);
 			}
 		}
 	).catch((err) => console.error(err));
