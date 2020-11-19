@@ -67,7 +67,7 @@ function sendData()
 
 	fetch
 	(
-		"../../server/api/signup.php",
+		"/hps-gems/server/api/signup.php",
 		{
 			method: "POST",
 			headers: {
