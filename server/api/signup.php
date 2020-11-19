@@ -40,7 +40,7 @@
 			array_push($errors, "Please enter the phone number in the correct format. (Eg: +911234567890)");
 
 		if(count($errors) > 0)
-			echo json_encode(array("status" => "NOT ACCEPTABLE", "code" => 406, "errors" => $errors));
+			echo json_encode(array("status" => "NOT ACCEPTABLE", "code" => 406, "data" => array(), "errors" => $errors));
 		else // Data is error-free
 		{
 			// Hash password
@@ -57,11 +57,11 @@
 			$result = $user->signup();
 
 			if($result["status"] === "success")
-				echo json_encode(array("status" => "OK", "code" => 200, "errors" => array()));
+				echo json_encode(array("status" => "OK", "code" => 200, "data" => array(), "errors" => array()));
 			else
-				echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "errors" => array("Database error")));
+				echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error")));
 		}
 	}
 	else
-		echo json_encode(array("status" => "NOT ACCEPTABLE", "code" => 406, "errors" => array("Error in receiving data.")));
+		echo json_encode(array("status" => "NOT ACCEPTABLE", "code" => 406, "data" => array(), "errors" => array("Error in receiving data.")));
 ?>
