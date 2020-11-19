@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<script defer src="../js/login.js"></script>
+
 		<link rel="stylesheet" href="../css/base.css">
 		<link rel="stylesheet" href="../css/header.css">
 		<link rel="stylesheet" href="../css/login-signup.css">
@@ -29,15 +31,16 @@
 
 		<main>
 			<div id="main-title">Log In</div>
+			<div id="errors"></div>
 
 			<form action="#" method="POST" class="form">
 				<div class="input-group">
-					<input type="email" name="email" id="e-mail" placeholder="e-mail">
+					<input type="email" name="email" id="e-mail" placeholder="e-mail" autocomplete="email">
 					<label for="e-mail">e-mail</label>
 				</div>
 
                 <div class="input-group">
-                    <input type="password" name="password" id="password" placeholder="Password">
+                    <input type="password" name="password" id="password" placeholder="Password" autocomplete="current-password">
                     <label for="password">Password</label>
                 </div>
                 

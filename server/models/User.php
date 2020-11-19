@@ -43,13 +43,43 @@
 			try
 			{
 				if($stmt->execute())
-					return array("status" => "success");
+					return array("status" => "success", "data" => array());
 				else
-					return array("status" => "failure");
+					return array("status" => "failure", "data" => array());
 			}
 			catch(PDOException $e)
 			{
-				return array("status" => "failure");
+				return array("status" => "failure", "data" => array());
+			}
+		}
+
+		public function checkCredentials()
+		{
+			$query = "SELECT
+						id,
+						password
+					FROM
+						$this->table_name
+					WHERE
+						email = :email
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":email", $this->email);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => $stmt->fetch(PDO::FETCH_ASSOC));
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
 			}
 		}
 	}
