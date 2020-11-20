@@ -30,6 +30,11 @@ input:focus, textarea:focus
     border-bottom: 2px solid #bdbdbd;
 }
 
+input:disabled
+{
+	cursor: not-allowed;
+}
+
 input::placeholder, textarea::placeholder
 {
     color: transparent;
@@ -71,7 +76,7 @@ button
     width: 50%;
     border: 1px solid;
     border-color: #e0e0e0;
-    border-radius: 5px;
+    border-radius: 2px;
     font-family: inherit;
     font-size: 18px;
     background-color: #fafafa;
@@ -83,7 +88,15 @@ button:hover
 {
     background-color: #212121;
     color: #fafafa;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+button:disabled
+{
+	background-color: #e0e0e0;
+	color: #757575;
+	cursor: not-allowed;
 }
 
 

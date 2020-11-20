@@ -47,10 +47,10 @@ template.innerHTML = `
 	</style>
 
 	<div class="product-card">
-		<a href="#"><img /></a>
+		<a><img /></a>
 
 		<div class="product-info">
-			<a href="#"><div class="product-title"></div></a>
+			<a><div class="product-title"></div></a>
 
 			<div class="cost">Rs. <span class="product-cost"></span>/piece</div>
 		</div>
@@ -59,16 +59,19 @@ template.innerHTML = `
 
 class ProductCard extends HTMLElement
 {
-	constructor()
+	constructor({ id, name, price,  pic_url })
 	{
 		super();
 
 		this.attachShadow({ mode: "open" });
 		this.shadowRoot.appendChild(template.content.cloneNode(true));
+		this.shadowRoot.querySelector(".product-title").innerText = name;
+		this.shadowRoot.querySelector(".product-cost").innerText = price;
+		this.shadowRoot.querySelector("img").src = pic_url;
 		
-		this.shadowRoot.querySelector("img").src = this.getAttribute("img");
-		this.shadowRoot.querySelector(".product-title").innerText = this.getAttribute("name");
-		this.shadowRoot.querySelector(".product-cost").innerText = this.getAttribute("price");
+		const links = this.shadowRoot.querySelectorAll("a");
+		for(let i = 0; i < links.length; i++)
+			links[i].href = `./client/html/product.html?id=${id}`;
 	}
 }
 

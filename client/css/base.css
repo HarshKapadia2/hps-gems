@@ -16,3 +16,10 @@ a
 {
 	text-decoration: none;
 }
+
+#errors
+{
+	padding: 1em 0;
+	color: red;
+	text-align: center;
+}

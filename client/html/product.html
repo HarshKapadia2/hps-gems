@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script defer src="../js/product.js"></script>
+
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="../css/base.css">
+		<link rel="stylesheet" type="text/css" href="../css/header.css">
+		<link rel="stylesheet" type="text/css" href="../css/form.css">
+        <link rel="stylesheet" type="text/css" href="../css/product-page.css">
+        <link rel="stylesheet" type="text/css" href="../css/footer.css">
+
+        <title>HPS Gems</title>
+	</head>
+
+    <body>
+        <header>
+			<div id="header-content">
+				<a href="../../index.html"><div id="logo">HPS Gems</div></a>
+	
+				<nav>
+					<ul>
+						<a href="#"><li>Cart</li></a>
+						<a href="./signup.html"><li>Log In/Sign Up</li></a>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+        <div class="product">
+			<div id="errors"></div>
+
+            <div id="image">
+                <img />
+            </div>
+            
+            <div class="content">
+                <div class="description">
+                    <h2 id="name"></h2><br>
+					
+                    <h4 id="descp"></h4>
+                </div>
+
+                <div class="add-to-cart">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="left"><h4>Price/piece</div>
+                                <div class="right" id="price"><h4></h4></div>
+                            </td>
+                        </tr>  
+                        
+                        <tr>
+                            <td>
+                                <div class="left"><h4>Status</h4></div>
+                                <div class="right" id="status"><h4></h4></div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="left"><h4>Quantity available</h4></div>
+                                <div class="right" id="available-qty"><h4></h4></div>
+                            </td>
+                        </tr>
+					</table>
+
+					<table>
+						<tr>
+							<td>
+								<div class="input-group">
+									<input type="number" min="0" name="order_qty" id="order-qty" placeholder="Order quantity" required>
+									<label for="order_qty">Order quantity</label>
+								</div>
+							</td>
+						</tr>
+					</table>
+					
+					<button type="submit"><h4>Add to cart</h4></button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+			&copy;2020 Harsh Kapadia, Pranjal Jain and Saikiran Jakkan
+		</footer>
+    </body>
+</html>

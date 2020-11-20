@@ -37,7 +37,11 @@ function validate()
 function displayErrors()
 {
 	for(let i = 0; i < errors.length; i++)
-		error_div.innerHTML += `${errors[i]}<br>`;
+	{
+		let div = document.createElement("div");
+		div.innerText = errors[i];
+		error_div.appendChild(div);
+	}
 
 	errors = [];
 }
@@ -51,7 +55,7 @@ function sendData()
 
 	fetch
 	(
-		"../../server/api/login.php",
+		"/hps-gems/server/api/login.php",
 		{
 			method: "POST",
 			headers: {
