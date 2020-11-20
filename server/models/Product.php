@@ -18,6 +18,7 @@
 		public function getAllProducts()
 		{
 			$query = "SELECT
+						id,
 						name,
 						price,
 						pic_url
