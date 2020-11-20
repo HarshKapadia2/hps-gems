@@ -2,7 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<script defer src="../js/product.js"></script>
 
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
@@ -12,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="../css/product-page.css">
         <link rel="stylesheet" type="text/css" href="../css/footer.css">
 
-        <title>Yellow Sapphire</title>
+        <title>HPS Gems</title>
 	</head>
 
     <body>
@@ -23,22 +25,24 @@
 				<nav>
 					<ul>
 						<a href="#"><li>Cart</li></a>
-						<a href="#"><li>Log In/Sign Up</li></a>
+						<a href="./signup.html"><li>Log In/Sign Up</li></a>
 					</ul>
 				</nav>
 			</div>
 		</header>
 
         <div class="product">
+			<div id="errors"></div>
+
             <div id="image">
-                <img src="https://firebasestorage.googleapis.com/v0/b/hps-gems.appspot.com/o/product%2Fyellow-sapphire.jpg?alt=media&token=25da37bc-5b80-436b-a28a-17105af43727" alt="yellow-sapphire">
+                <img />
             </div>
             
             <div class="content">
                 <div class="description">
-                    <h2>Yellow Sapphire</h2><br>
+                    <h2 id="name"></h2><br>
 					
-                    <h4>140 Carat Natural Yellow Sapphire Raw Material/Yellow Sapphire Rough/Sapphire Raw/Loose Gemstone/6 to 12 MM</h4>
+                    <h4 id="descp"></h4>
                 </div>
 
                 <div class="add-to-cart">
@@ -46,21 +50,21 @@
                         <tr>
                             <td>
                                 <div class="left"><h4>Price/piece</div>
-                                <div class="right"><h4>Rs.30</h4></div>
+                                <div class="right" id="price"><h4></h4></div>
                             </td>
                         </tr>  
                         
                         <tr>
                             <td>
                                 <div class="left"><h4>Status</h4></div>
-                                <div class="right"><h4>In stock</h4></div>
+                                <div class="right" id="status"><h4></h4></div>
                             </td>
                         </tr>
 
                         <tr>
                             <td>
                                 <div class="left"><h4>Quantity available</h4></div>
-                                <div class="right"><h4>13</h4></div>
+                                <div class="right" id="available-qty"><h4></h4></div>
                             </td>
                         </tr>
 					</table>
@@ -76,7 +80,7 @@
 						</tr>
 					</table>
 					
-					<button class="button"><h4>Add to cart</h4></button>
+					<button type="submit"><h4>Add to cart</h4></button>
                 </div>
             </div>
         </div>

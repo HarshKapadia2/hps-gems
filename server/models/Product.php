@@ -4,6 +4,7 @@
 		private $conn;
 		private $table_name = "product";
 
+		public $id;
 		public $name;
 		public $description;
 		public $price;
@@ -33,6 +34,35 @@
 			{
 				if($stmt->execute())
 					return array("status" => "success", "data" => array("no_of_products" => $stmt->rowCount(), "products" => $stmt->fetchAll()));
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
+
+		public function getProduct()
+		{
+			$query = "SELECT
+						*
+					FROM
+						$this->table_name
+					WHERE
+						id = :id
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":id", $this->id);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => $stmt->fetch(PDO::FETCH_ASSOC));
 				else
 					return array("status" => "failure", "data" => array());
 			}
