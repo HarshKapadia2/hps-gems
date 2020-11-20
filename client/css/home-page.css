@@ -31,13 +31,6 @@ main
 	font-size: 30px;
 }
 
-#errors
-{
-	padding: 1em 0;
-	color: red;
-	text-align: center;
-}
-
 #product-cards
 {
 	display: grid;

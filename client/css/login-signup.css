@@ -10,10 +10,3 @@ main
 {
 	font-size: clamp(60px, 10vw, 100px);
 }
-
-#errors
-{
-	padding: 1em 0;
-	color: red;
-	text-align: center;
-}
