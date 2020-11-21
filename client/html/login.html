@@ -12,6 +12,8 @@
 		<link rel="stylesheet" href="../css/form.css">
 		<link rel="stylesheet" href="../css/footer.css">
 
+		<link rel="shortcut icon" href="https://firebasestorage.googleapis.com/v0/b/hps-gems.appspot.com/o/logo%2Ffavicon.ico?alt=media&token=01ea51aa-eb17-419c-9cb0-fbb7149d09e5" type="image/x-icon">
+		
 		<title>HPS Gems Log In</title>
 	</head>
 	
@@ -31,9 +33,10 @@
 
 		<main>
 			<div id="main-title">Log In</div>
-			<div id="errors"></div>
+			<noscript class="error-style">You need to enable JavaScript to run this web app.</noscript>
+			<div id="errors" class="error-style"></div>
 
-			<form action="#" method="POST" class="form">
+			<form method="POST" class="form">
 				<div class="input-group">
 					<input type="email" name="email" id="e-mail" placeholder="e-mail" autocomplete="email" required>
 					<label for="e-mail">e-mail</label>
@@ -51,7 +54,12 @@
 		</main>
 
 		<footer>
-			&copy;2020 Harsh Kapadia, Pranjal Jain and Saikiran Jakkan
+			<div>
+				<a href="https://github.com/HarshKapadia2/hps-gems" target="_blank" rel="noreferrer">GitHub Repo</a> | &copy;2020
+				<a href="https://www.linkedin.com/in/harshgkapadia" target="_blank" rel="noreferrer">Harsh Kapadia</a>,
+				<a href="https://www.linkedin.com/in/pranjal-jain-2aa00b182" target="_blank" rel="noreferrer">Pranjal Jain</a>,
+				<a href="https://www.linkedin.com/in/saikiran-jakkan-939b2a190" target="_blank" rel="noreferrer">Saikiran Jakkan</a>
+			</div>
 		</footer>
 	</body>
 </html>

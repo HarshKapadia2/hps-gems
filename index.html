@@ -3,6 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="THE place to buy raw gemstones!">
+		<meta name="keywords" content="gemstones, hps-gems, gems, raw gemstones, raw gems, jam stack, php, fetch api">
+		<meta name="author" content="Harsh Kapadia, Saikiran Jakkan, Pranjal Jain">
 
 		<script defer src="./client/js/product-card.js"></script>
 		<script defer src="./client/js/home-page.js"></script>
@@ -13,6 +16,8 @@
 		<link rel="stylesheet" type="text/css" href="./client/css/header.css">
 		<link rel="stylesheet" type="text/css" href="./client/css/home-page.css">
 		<link rel="stylesheet" type="text/css" href="./client/css/footer.css">
+
+		<link rel="shortcut icon" href="https://firebasestorage.googleapis.com/v0/b/hps-gems.appspot.com/o/logo%2Ffavicon.ico?alt=media&token=01ea51aa-eb17-419c-9cb0-fbb7149d09e5" type="image/x-icon">
 
 		<title>HPS Gems</title>
 	</head>
@@ -38,18 +43,19 @@
 
 		<section id="products-section">
 			<div id="products-text">Latest Products</div>
-			<div id="errors"></div>
 
-			<div id="product-cards">
-				<!-- <product-card name="Aquamarine" price="210" img="./client/img/aquamarine.jpg"></product-card>
-				<product-card name="Tourmaline" price="183" img="./client/img/tourmaline.jpg"></product-card>
-				<product-card name="Malachite" price="100" img="./client/img/malachite.jpg"></product-card>
-				<product-card name="Yellow Sapphire" price="1,260" img="./client/img/yellow-sapphire.jpg"></product-card> -->
-			</div>
+			<noscript class="error-style">You need to enable JavaScript to run this web app.</noscript>
+			<div id="errors" class="error-style"></div>
+			<div id="product-cards"></div>
 		</section>
 
 		<footer>
-			&copy;2020 Harsh Kapadia, Pranjal Jain and Saikiran Jakkan
+			<div>
+				<a href="https://github.com/HarshKapadia2/hps-gems" target="_blank" rel="noreferrer">GitHub Repo</a> | &copy;2020
+				<a href="https://www.linkedin.com/in/harshgkapadia" target="_blank" rel="noreferrer">Harsh Kapadia</a>,
+				<a href="https://www.linkedin.com/in/pranjal-jain-2aa00b182" target="_blank" rel="noreferrer">Pranjal Jain</a>,
+				<a href="https://www.linkedin.com/in/saikiran-jakkan-939b2a190" target="_blank" rel="noreferrer">Saikiran Jakkan</a>
+			</div>
 		</footer>
 	</body>
 </html>

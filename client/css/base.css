@@ -17,9 +17,10 @@ a
 	text-decoration: none;
 }
 
-#errors
+.error-style
 {
 	padding: 1em 0;
 	color: red;
 	text-align: center;
+	width: 90vw;
 }
