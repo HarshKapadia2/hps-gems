@@ -3,9 +3,95 @@ main
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding: 5em 0;
 }
 
 #main-title
 {
 	font-size: clamp(60px, 10vw, 100px);
+}
+
+#undelivered-items
+{
+	padding-top: 5em;
+}
+
+#undelivered-items, #delivered-items
+{
+	display: flex;
+	justify-content: center;
+	overflow: auto;
+	width: 90vw;
+	margin: auto;
+}
+
+#table-name
+{
+	font-size: clamp(40px, 10vw, 100px);
+	padding: 1em 0;
+	text-align: center;
+}
+
+img
+{
+	width: 8vw;
+	border-radius: 2px;
+}
+
+table
+{
+	overflow: auto;
+}
+
+th, td
+{
+	padding: 0.5em 1em;
+	text-align: center;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+a
+{
+	font-size: 18px;
+	color: #757575;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+button
+{
+	padding: 0.5em 1em;
+	width: 100%;
+	text-align: center;
+}
+
+button:hover
+{
+	background-color: #e53935;
+}
+
+#total-row
+{
+	font-weight: bold;
+}
+
+/* ====================================== MEDIA QUERY ======================================== */
+
+@media screen and (max-width: 650px)
+{
+	img
+	{
+		width: 15vw;
+	}
+}
+
+@media screen and (max-width: 360px)
+{
+	img
+	{
+		width: 20vw;
+	}
 }
