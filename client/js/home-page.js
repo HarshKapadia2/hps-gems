@@ -1,12 +1,21 @@
 const product_cards = document.querySelector("#product-cards");
 const error_div = document.querySelector("#errors");
+const links = document.querySelector("#links");
 
 let errors = [];
 
-window.addEventListener("load", () => getProducts());
+window.addEventListener
+(
+	"load",
+	() =>
+	{
+		displayProducts();
+		auth();
+	}
+);
 
 
-function getProducts()
+function displayProducts()
 {
 	fetch
 	(
@@ -55,6 +64,75 @@ function getProducts()
 			}
 		}
 	).catch((err) => console.error(err));
+}
+
+function auth()
+{
+	const token = localStorage.getItem("hpsgemstoken");
+	
+	if(!token)
+	{
+		createNavLink("Log In/Sign Up", "./client/html/signup.html");
+		return;
+	}	
+
+	fetch
+	(
+		"/hps-gems/server/api/auth.php",
+		{
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json"
+			},
+			mode: "same-origin",
+			body: JSON.stringify({ token: token })
+		}
+	).then
+	(
+		(res) =>
+		{
+			if(res.ok)
+			{
+				return res.json();
+			}
+			else
+			{
+				errors.push("Failure in fetching data.");
+				displayErrors();
+
+				throw new Error("Failure in fetching data.");
+			}
+		}
+	).then
+	(
+		(res_data) =>
+		{
+			if(res_data.code === 200)
+			{
+				createNavLink("Cart", "./client/html/cart.html");
+				createNavLink(`${res_data.data.first_name} ${res_data.data.last_name}`, "./client/html/profile.html");
+			}
+			else
+			{
+				createNavLink("Log In/Sign Up", "./client/html/signup.html");
+
+				throw new Error(`${res_data.code} ${res_data.status}: ${res_data.errors}`);
+			}
+		}
+	).catch((err) => console.error(err));
+}
+
+function createNavLink(text, url)
+{
+	let a = document.createElement("a");
+	let li = document.createElement("li");
+
+	li.innerText = text;
+	a.href = url;
+	
+	a.appendChild(li);
+	links.appendChild(a);
 }
 
 function displayErrors()
