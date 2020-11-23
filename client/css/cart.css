@@ -50,13 +50,13 @@ th, td
 	border-bottom: 1px solid #e0e0e0;
 }
 
-a
+main a
 {
 	font-size: 18px;
 	color: #757575;
 }
 
-a:hover
+main a:hover
 {
 	text-decoration: underline;
 }
