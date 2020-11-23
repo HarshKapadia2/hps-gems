@@ -1,0 +1,35 @@
+table {
+	border: 1px solid #e0e0e0;
+	border-radius: 2px;
+	margin: 1em 0;
+}
+ 
+#details {
+    border-collapse: collapse;
+    width: 50%;
+}
+  
+#details td, #details th {
+    font-size: 20px;
+    border: 1px solid #ddd;
+    padding: 0.8em;
+}
+
+#details tr:nth-child(even){background-color: #f2f2f2;}
+
+#details tr:hover {background-color: #ddd;}
+
+#details th {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: left;
+    color: white;
+}
+
+@media only screen and (max-width: 660px) {
+    #details td, #details th {
+        font-size: 13px;
+        border: 1px solid #ddd;
+        padding: 0.6em;
+    }
+}
