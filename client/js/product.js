@@ -77,7 +77,7 @@ function getProduct(prod_id)
 				{
 					status.innerText = "Out of stock";
 					button.disabled = true;
-					order_qty.setAttribute("disabled", "");
+					ordered_qty.setAttribute("disabled", "");
 				}
 			}
 			else
