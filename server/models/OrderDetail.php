@@ -17,7 +17,7 @@
 
 		public function addOrder()
 		{
-			$update_result = $this->updateOrder();
+			$update_result = $this->updateOrderQty();
 
 			if($update_result["status"] === "success")
 				return array("status" => "success", "data" => array());
@@ -51,7 +51,7 @@
 			}
 		}
 
-		public function updateOrder()
+		public function updateOrderQty()
 		{
 			$query = "UPDATE
 						$this->table_name
@@ -80,6 +80,42 @@
 
 				if($result && $affectedRows > 0)
 					return array("status" => "success", "data" => array());
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
+
+		public function getOrder()
+		{
+			$query = "SELECT
+						$this->table_name.*,
+						product.name,
+						product.price,
+						product.pic_url
+					FROM
+						$this->table_name
+					INNER JOIN
+						product
+					ON
+						$this->table_name.prod_id = product.id
+					WHERE
+						$this->table_name.user_id = :user_id
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":user_id", $this->user_id);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => array("item_count" => $stmt->rowCount(), "items" => $stmt->fetchAll(PDO::FETCH_ASSOC)));
 				else
 					return array("status" => "failure", "data" => array());
 			}

@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<script defer src="../js/cart.js"></script>
+
 		<link rel="stylesheet" type="text/css" href="../css/base.css">
 		<link rel="stylesheet" type="text/css" href="../css/header.css">
 		<link rel="stylesheet" type="text/css" href="../css/form.css">
@@ -21,10 +23,7 @@
 				<a href="../../index.html"><div id="logo">HPS Gems</div></a>
 	
 				<nav>
-					<ul>
-						<a href="#"><li>Cart</li></a>
-						<a href="./signup.html"><li>Log In/Sign Up</li></a>
-					</ul>
+					<ul id="links"></ul>
 				</nav>
 			</div>
 		</header>
@@ -33,7 +32,10 @@
 			<div id="main-title">Cart</div>
 
 			<div id="undelivered-items">
-				<table>
+				<noscript class="error-style">You need to enable JavaScript to run this web app.</noscript>
+				<div id="errors" class="error-style" style="color: red;"></div>
+
+				<table id="undelivered-items-table">
 					<tr>
 						<th></th>
 						<th>Name</th>
@@ -43,27 +45,7 @@
 						<th>Total cost (Rs.)</th>
 						<th></th>
 					</tr>
-
-					<tr>
-						<td><a href="./product.html?id=1"><img src="https://firebasestorage.googleapis.com/v0/b/hps-gems.appspot.com/o/product%2Faquamarine.jpg?alt=media&token=b53597d3-5adf-4e55-9bd9-7ccdfc69381b"></a></td>
-						<td><a href="./product.html?id=1">Aquamarine</a></td>
-						<td>12-11-2020</td>
-						<td>250</td>
-						<td>10</td>
-						<td>2500</td>
-						<td><button type="submit">Remove</button></td>
-					</tr>
 					
-					<tr>
-						<td><a href="./product.html?id=1"><img src="https://firebasestorage.googleapis.com/v0/b/hps-gems.appspot.com/o/product%2Faquamarine.jpg?alt=media&token=b53597d3-5adf-4e55-9bd9-7ccdfc69381b"></a></td>
-						<td><a href="./product.html?id=1">Aquamarine</a></td>
-						<td>12-11-2020</td>
-						<td>250</td>
-						<td>10</td>
-						<td>2500</td>
-						<td><button type="submit">Remove</button></td>
-					</tr>
-
 					<tr id="total-row">
 						<td></td>
 						<td></td>
@@ -74,12 +56,14 @@
 						<td></td>
 					</tr>
 				</table>
+
+				<button type="submit" id="checkout-btn">Proceed to checkout</button>
 			</div>
 
 			<div id="table-name">Shopping History</div>
 
 			<div id="delivered-items">
-				<table>
+				<table id="delivered-items-table">
 					<tr>
 						<th></th>
 						<th>Name</th>
@@ -87,24 +71,6 @@
 						<th>Price per piece (Rs.)</th>
 						<th>Qty</th>
 						<th>Total cost (Rs.)</th>
-					</tr>
-
-					<tr>
-						<td><a href="./product.html?id=1"><img src="https://firebasestorage.googleapis.com/v0/b/hps-gems.appspot.com/o/product%2Faquamarine.jpg?alt=media&token=b53597d3-5adf-4e55-9bd9-7ccdfc69381b"></a></td>
-						<td><a href="./product.html?id=1">Aquamarine</a></td>
-						<td>12-11-2020</td>
-						<td>250</td>
-						<td>10</td>
-						<td>2500</td>
-					</tr>
-					
-					<tr>
-						<td><a href="./product.html?id=1"><img src="https://firebasestorage.googleapis.com/v0/b/hps-gems.appspot.com/o/product%2Faquamarine.jpg?alt=media&token=b53597d3-5adf-4e55-9bd9-7ccdfc69381b"></a></td>
-						<td><a href="./product.html?id=1">Aquamarine</a></td>
-						<td>12-11-2020</td>
-						<td>250</td>
-						<td>10</td>
-						<td>2500</td>
 					</tr>
 				</table>
 			</div>

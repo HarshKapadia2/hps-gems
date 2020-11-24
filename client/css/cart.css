@@ -19,7 +19,8 @@ main
 #undelivered-items, #delivered-items
 {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	overflow: auto;
 	width: 90vw;
 	margin: auto;
@@ -61,14 +62,14 @@ main a:hover
 	text-decoration: underline;
 }
 
-button
+#undelivered-items-table button
 {
 	padding: 0.5em 1em;
 	width: 100%;
 	text-align: center;
 }
 
-button:hover
+#undelivered-items-table button:hover
 {
 	background-color: #e53935;
 }
@@ -76,6 +77,11 @@ button:hover
 #total-row
 {
 	font-weight: bold;
+}
+
+#checkout-btn
+{
+	margin: 2em 0;
 }
 
 /* ====================================== MEDIA QUERY ======================================== */
