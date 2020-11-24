@@ -71,5 +71,35 @@
 				return array("status" => "failure", "data" => array());
 			}
 		}
+
+		public function updateQty()
+		{
+			$query = "UPDATE
+						$this->table_name
+					SET
+						qty = :qty
+					WHERE
+						id = :id
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":id", $this->id);
+			$stmt->bindParam(":qty", $this->qty);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => array());
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
 	}
 ?>

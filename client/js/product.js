@@ -6,22 +6,24 @@ const prod_descp = document.querySelector("#descp");
 const price = document.querySelector("#price");
 const status = document.querySelector("#status");
 const available_qty = document.querySelector("#available-qty");
-const order_qty = document.querySelector("#order-qty");
+const ordered_qty = document.querySelector("#order-qty");
 const button = document.querySelector("button");
-
-const page_url = window.location.href;
 
 let errors = [];
 
-window.addEventListener
+const page_url = window.location.href;
+const url = new URL(page_url);
+const prod_id = url.searchParams.get("id");
+
+window.addEventListener("load", () => getProduct(prod_id));
+
+button.addEventListener
 (
-	"load",
+	"click",
 	() =>
 	{
-		const url = new URL(page_url);
-		const prod_id = url.searchParams.get("id");
-
-		getProduct(prod_id);
+		if(validate(parseInt(ordered_qty.value)))
+			addToCart();
 	}
 );
 
@@ -45,9 +47,7 @@ function getProduct(prod_id)
 		(res) =>
 		{
 			if(res.ok)
-			{
 				return res.json();
-			}
 			else
 			{
 				errors.push("Failure in fetching data.");
@@ -89,6 +89,84 @@ function getProduct(prod_id)
 			}
 		}
 	).catch((err) => console.error(err));
+}
+
+function addToCart()
+{
+	const token = localStorage.getItem("hpsgemstoken");
+
+	if(!token)
+	{
+		errors.push("Please log in to add product to cart.");
+		displayErrors();
+		return;
+	}
+
+	const obj = {
+		id: prod_id,
+		qty: parseInt(ordered_qty.value)
+	};
+	
+	fetch
+	(
+		"/hps-gems/server/api/add-to-cart.php",
+		{
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json",
+				"Authentication": `Bearer ${token}`
+			},
+			mode: "same-origin",
+			body: JSON.stringify(obj)
+		}
+	).then
+	(
+		(res) =>
+		{
+			if(res.ok)
+				return res.json();
+			else
+			{
+				errors.push("Failure in fetching data.");
+				displayErrors();
+
+				throw new Error("Failure in fetching data.");
+			}
+		}
+	).then
+	(
+		(res_data) =>
+		{
+			if(res_data.code === 200)
+				window.location = "/hps-gems/client/html/cart.html";
+			else
+			{
+				errors = res_data.errors;
+				displayErrors();
+
+				throw new Error(`${res_data.code} ${res_data.status}: ${res_data.errors}`);
+			}
+		}
+	).catch((err) => console.error(err));
+}
+
+function validate(qty)
+{
+	if(isNaN(qty))
+		errors.push("Please enter the quantity to be ordered.");
+	if(qty <= 0)
+		errors.push("The quantity ordered should be an integer more than 0.");
+	if(qty > parseInt(available_qty.innerText))
+		errors.push("You cannot order more than the available quantity.");
+
+	if(errors.length > 0)
+	{
+		displayErrors();
+		return false;
+	}
+	else
+		return true;
 }
 
 function displayErrors()
