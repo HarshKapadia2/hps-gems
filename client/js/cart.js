@@ -59,7 +59,7 @@ async function auth()
 		{
 			if(res_data.code === 200)
 			{
-				createNavLink("Cart", "./cart.html");
+				createNavLink("Check Out", "./checkout.html");
 				createNavLink(`${res_data.data.first_name} ${res_data.data.last_name}`, "./profile.html");
 				
 				return true;
