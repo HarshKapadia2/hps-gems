@@ -80,13 +80,10 @@ function auth()
 	(
 		"/hps-gems/server/api/auth.php",
 		{
-			method: "POST",
 			headers: {
-				"Content-Type": "application/json",
-				"Accept": "application/json"
-			},
-			mode: "same-origin",
-			body: JSON.stringify({ token: token })
+				"Accept": "application/json",
+				"Authentication": `Bearer ${token}`
+			}
 		}
 	).then
 	(

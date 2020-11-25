@@ -8,6 +8,7 @@ const status = document.querySelector("#status");
 const available_qty = document.querySelector("#available-qty");
 const ordered_qty = document.querySelector("#order-qty");
 const button = document.querySelector("button");
+const links= document.querySelector("#links");
 
 let errors = [];
 
@@ -15,7 +16,17 @@ const page_url = window.location.href;
 const url = new URL(page_url);
 const prod_id = url.searchParams.get("id");
 
-window.addEventListener("load", () => getProduct(prod_id));
+const token = localStorage.getItem("hpsgemstoken");
+
+window.addEventListener
+(
+	"load",
+	() =>
+	{
+		getProduct(prod_id);
+		auth();
+	}
+);
 
 button.addEventListener
 (
@@ -77,7 +88,7 @@ function getProduct(prod_id)
 				{
 					status.innerText = "Out of stock";
 					button.disabled = true;
-					order_qty.setAttribute("disabled", "");
+					ordered_qty.setAttribute("disabled", "");
 				}
 			}
 			else
@@ -91,10 +102,60 @@ function getProduct(prod_id)
 	).catch((err) => console.error(err));
 }
 
+function auth()
+{
+	if(!token)
+	{
+		createNavLink("Log In/Sign Up", "./client/html/signup.html");
+		return;
+	}	
+
+	fetch
+	(
+		"/hps-gems/server/api/auth.php",
+		{
+			headers: {
+				"Accept": "application/json",
+				"Authentication": `Bearer ${token}`
+			}
+		}
+	).then
+	(
+		(res) =>
+		{
+			if(res.ok)
+			{
+				return res.json();
+			}
+			else
+			{
+				errors.push("Failure in fetching data.");
+				displayErrors();
+
+				throw new Error("Failure in fetching data.");
+			}
+		}
+	).then
+	(
+		(res_data) =>
+		{
+			if(res_data.code === 200)
+			{
+				createNavLink("Cart", "./cart.html");
+				createNavLink(`${res_data.data.first_name} ${res_data.data.last_name}`, "./profile.html");
+			}
+			else
+			{
+				createNavLink("Log In/Sign Up", "./signup.html");
+
+				throw new Error(`${res_data.code} ${res_data.status}: ${res_data.errors}`);
+			}
+		}
+	).catch((err) => console.error(err));
+}
+
 function addToCart()
 {
-	const token = localStorage.getItem("hpsgemstoken");
-
 	if(!token)
 	{
 		errors.push("Please log in to add product to cart.");
@@ -167,6 +228,18 @@ function validate(qty)
 	}
 	else
 		return true;
+}
+
+function createNavLink(text, url)
+{
+	let a = document.createElement("a");
+	let li = document.createElement("li");
+
+	li.innerText = text;
+	a.href = url;
+	
+	a.appendChild(li);
+	links.appendChild(a);
 }
 
 function displayErrors()

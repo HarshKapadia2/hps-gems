@@ -12,33 +12,23 @@
 
 	$errors = [];
 
-	$content_type = isset($_SERVER["CONTENT_TYPE"]) ? $_SERVER["CONTENT_TYPE"] : "";
+	$auth_header_val = isset($_SERVER["HTTP_AUTHENTICATION"]) ? $_SERVER["HTTP_AUTHENTICATION"]: "";
 
-	if($content_type === "application/json")
+	if($auth_header_val != "")
 	{
-		$data = json_decode(file_get_contents("php://input"));
+		$token = substr($auth_header_val, 7);
 
-		// Cleanse data
-		$token = htmlspecialchars(strip_tags(trim($data->token)));
+		$auth->token = $token;
+		$result = $auth->authenticate();
 
-		// Validation
-		if($token === "")
-			echo json_encode(array("status" => "UNAUTHORIZED", "code" => 401, "data" => array(), "errors" => array("Error in determining auth state.")));
-		else // Data is error-free
-		{
-			$auth->token = $token;
-
-			$result = $auth->authenticate();
-
-			if($result["status"] === "success")
-				echo json_encode(array("status" => "OK", "code" => 200, "data" => $result["data"], "errors" => array()));
-			else if($result["status"] === "unauthorized")
-				echo json_encode(array("status" => "UNAUTHORIZED", "code" => 401, "data" => array(), "errors" => array("Incorrect e-mail ID or password.")));
-			else if($result["status"] === "expired")
-				echo json_encode(array("status" => "UNAUTHORIZED", "code" => 401, "data" => array(), "errors" => array("Login expired.")));
-			else
-				echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error")));
-		}
+		if($result["status"] === "success")
+			echo json_encode(array("status" => "OK", "code" => 200, "data" => $result["data"], "errors" => array()));
+		else if($result["status"] === "unauthorized")
+			echo json_encode(array("status" => "UNAUTHORIZED", "code" => 401, "data" => array(), "errors" => array("Incorrect e-mail ID or password.")));
+		else if($result["status"] === "expired")
+			echo json_encode(array("status" => "UNAUTHORIZED", "code" => 401, "data" => array(), "errors" => array("Login expired. Please log in again.")));
+		else
+			echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error")));
 	}
 	else
 		echo json_encode(array("status" => "NOT ACCEPTABLE", "code" => 406, "data" => array(), "errors" => array("Error in receiving data.")));
