@@ -26,6 +26,7 @@ header a
 {
 	font-size: clamp(20px, 2vw, 100px);
 	color: #fafafa;
+	text-align: center;
 }
 
 ul
