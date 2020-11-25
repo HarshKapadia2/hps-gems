@@ -124,5 +124,37 @@
 				return array("status" => "failure", "data" => array());
 			}
 		}
+
+		public function deleteOrder()
+		{
+			$query = "DELETE FROM
+						$this->table_name
+					WHERE
+							user_id = :user_id
+						AND
+							prod_id = :prod_id
+						AND
+							is_delivered = false
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":user_id", $this->user_id);
+			$stmt->bindParam(":prod_id", $this->prod_id);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => array());
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
 	}
 ?>
