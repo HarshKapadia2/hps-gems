@@ -106,7 +106,7 @@ function auth()
 {
 	if(!token)
 	{
-		createNavLink("Log In/Sign Up", "./client/html/signup.html");
+		createNavLink("Log In/Sign Up", "./signup.html");
 		return;
 	}	
 
