@@ -138,7 +138,50 @@ function getProfile()
 
 function logOut()
 {
-	console.log("In 'logOut' fn.");
+	fetch
+	(
+		"/hps-gems/server/api/logout.php",
+		{
+			headers: {
+				"Accept": "application/json",
+				"Authentication": `Bearer ${token}`
+			}
+		}
+	).then
+	(
+		(res) =>
+		{
+			if(res.ok)
+			{
+				return res.json();
+			}
+			else
+			{
+				errors.push("Failure in fetching data.");
+				displayErrors();
+
+				throw new Error("Failure in fetching data.");
+			}
+		}
+	).then
+	(
+		(res_data) =>
+		{
+			if(res_data.code === 200)
+			{
+				localStorage.removeItem("hpsgemstoken");
+
+				window.location = "/hps-gems/index.html";
+			}
+			else
+			{
+				errors = res_data.errors;
+				displayErrors();
+
+				throw new Error(`${res_data.code} ${res_data.status}: ${res_data.errors}`);
+			}
+		}
+	).catch((err) => console.error(err));
 }
 
 function createNavLink(text, url)

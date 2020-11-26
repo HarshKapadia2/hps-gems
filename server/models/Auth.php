@@ -122,5 +122,32 @@
 				return array("status" => "failure", "data" => array());
 			}
 		}
+
+		public function removeToken()
+		{
+			$query = "DELETE FROM
+						$this->table_name
+					WHERE
+						token = :token
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":token", $this->token);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => array());
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
 	}
 ?>
