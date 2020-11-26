@@ -27,6 +27,10 @@ async function auth()
 	if(!token)
 	{
 		createNavLink("Log In/Sign Up", "./client/html/signup.html");
+
+		errors.push("Log in to view cart.");
+		displayErrors();
+
 		return false;
 	}
 
