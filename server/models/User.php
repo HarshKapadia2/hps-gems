@@ -82,5 +82,38 @@
 				return array("status" => "failure", "data" => array());
 			}
 		}
+
+		public function getUser()
+		{
+			$query = "SELECT
+						first_name,
+						last_name,
+						email,
+						phone_no,
+						address
+					FROM
+						$this->table_name
+					WHERE
+						id = :id
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":id", $this->id);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => $stmt->fetch(PDO::FETCH_ASSOC));
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
 	}
 ?>
