@@ -115,5 +115,45 @@
 				return array("status" => "failure", "data" => array());
 			}
 		}
+
+		public function UpdateUser()
+		{
+			$query = "UPDATE
+						$this->table_name
+					SET
+						first_name = :f_name,
+						last_name = :l_name,
+						email = :email,
+						password = :password,
+						phone_no = :ph_no,
+						address = :address
+					WHERE
+						id = :id
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":f_name", $this->f_name);
+			$stmt->bindParam(":l_name", $this->l_name);
+			$stmt->bindParam(":email", $this->email);
+			$stmt->bindParam(":password", $this->password);
+			$stmt->bindParam(":ph_no", $this->ph_no);
+			$stmt->bindParam(":address", $this->address);
+			$stmt->bindParam(":id", $this->id);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => array());
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
 	}
 ?>
