@@ -5,12 +5,34 @@ const error_div = document.querySelector("#errors");
 
 let errors = [];
 
+const token = localStorage.getItem("hpsgemstoken");
+
+window.addEventListener
+(
+	"load",
+	() =>
+	{
+		if(token)
+		{
+			submit_btn.disabled = true;
+			password.disabled = true;
+			email.disabled = true;
+			
+			errors.push("You are already logged in. Happy shopping!");
+			displayErrors();
+		}
+	}
+);
+
 submit_btn.addEventListener
 (
 	"click",
 	(e) =>
 	{
 		e.preventDefault();
+
+		if(token)
+			return;
 		
 		if(validate())
 			sendData();

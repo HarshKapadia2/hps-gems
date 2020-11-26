@@ -11,13 +11,36 @@ const form = document.querySelector(".form");
 
 let errors = [];
 
+const token = localStorage.getItem("hpsgemstoken");
+
+window.addEventListener
+(
+	"load",
+	() =>
+	{
+		if(token)
+		{
+			submit_btn.disabled = true;
+			f_name.disabled = true;
+			l_name.disabled = true;
+			email.disabled = true;
+			pass_1.disabled = true;
+			pass_2.disabled = true;
+			ph_no.disabled = true;
+			address.disabled = true;
+			
+			errors.push("You are already logged in. Happy shopping!");
+			displayErrors();
+		}
+	}
+);
+
 submit_btn.addEventListener
 (
 	"click",
 	(e) =>
 	{
 		e.preventDefault();
-		error_div.innerHTML = "";
 		
 		if(validate())
 			sendData();

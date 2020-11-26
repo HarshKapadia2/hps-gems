@@ -30,7 +30,7 @@ input:focus, textarea:focus
     border-bottom: 2px solid #bdbdbd;
 }
 
-input:disabled
+input:disabled, textarea:disabled
 {
 	cursor: not-allowed;
 }
