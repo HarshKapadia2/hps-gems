@@ -25,6 +25,8 @@
 						pic_url
 					FROM
 						$this->table_name
+					ORDER BY
+						name
 			";
 
 			// Prepare data
