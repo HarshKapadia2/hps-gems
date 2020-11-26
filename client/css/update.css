@@ -1,0 +1,4 @@
+#main-title
+{
+	font-size: clamp(40px, 10vw, 100px);
+}
