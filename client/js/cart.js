@@ -6,6 +6,7 @@ const error_div = document.querySelector("#errors");
 let errors = [];
 let total_qty = 0;
 let total_price = 0;
+let undelivered_items_count = 0;
 
 const token = localStorage.getItem("hpsgemstoken");
 
@@ -119,12 +120,18 @@ async function getCartProducts()
 				for(let i = 0; i < res_data.data.item_count; i++)
 				{
 					if(res_data.data.items[i].is_delivered === "0")
+					{
+						undelivered_items_count++;
 						createRow(undelivered_table, res_data.data.items[i]);
+					}
 					else
 						createRow(delivered_table, res_data.data.items[i]);
 				}
 
 				createTotalRow();
+
+				if(undelivered_items_count === 0)
+					checkout_btn.disabled = true;
 			}
 			else
 			{

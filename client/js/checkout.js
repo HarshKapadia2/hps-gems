@@ -13,6 +13,7 @@ const order_btn = document.querySelector("button");
 
 let errors = [];
 let total_price = 0;
+let order_items_count = 0;
 
 const token = localStorage.getItem("hpsgemstoken");
 
@@ -133,11 +134,21 @@ function getCheckoutDetails()
 				{
 					let item_data = res_data.data.items[i];
 					createItem(item_data.pic_url, item_data.name, item_data.qty, item_data.price);
+
+					order_items_count++;
 				}
 
 				total_items_price.innerText = `Rs. ${total_price}`;
 				tax.innerText = `Rs. ${0.02 * total_price}`;
 				final_price.innerText = `Rs. ${100 + (0.02 * total_price) + total_price}`;
+
+				if(order_items_count === 0)
+				{
+					order_btn.disabled = true;
+
+					errors.push("No items in cart.");
+					displayErrors();
+				}
 			}
 			else
 			{
