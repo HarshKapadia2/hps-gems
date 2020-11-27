@@ -33,7 +33,7 @@
 			if($user_result["status"] === "success")
 			{
 				$order_detail->user_id = $auth_result["data"]["user_id"];
-				$order_result = $order_detail->getOrder();
+				$order_result = $order_detail->getUndeliveredOrders();
 	
 				if($order_result["status"] === "success")
 				{

@@ -157,6 +157,44 @@
 			}
 		}
 
+		public function getUndeliveredOrders()
+		{
+			$query = "SELECT
+						$this->table_name.*,
+						product.name,
+						product.price,
+						product.pic_url
+					FROM
+						$this->table_name
+					INNER JOIN
+						product
+					ON
+						$this->table_name.prod_id = product.id
+					WHERE
+							$this->table_name.user_id = :user_id
+						AND
+							is_delivered = false
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":user_id", $this->user_id);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => array("item_count" => $stmt->rowCount(), "items" => $stmt->fetchAll(PDO::FETCH_ASSOC)));
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
+
 		public function placeOrder()
 		{
 			$query = "UPDATE
