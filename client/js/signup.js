@@ -94,7 +94,7 @@ function sendData()
 
 	fetch
 	(
-		"/hps-gems/server/api/signup.php",
+		"/server/api/signup.php",
 		{
 			method: "POST",
 			headers: {
@@ -125,7 +125,7 @@ function sendData()
 		(res_data) =>
 		{
 			if(res_data.code === 200)
-				window.location = "/hps-gems/client/html/login.html";
+				window.location = "/client/html/login.html";
 			else
 			{
 				errors = res_data.errors;

@@ -64,7 +64,7 @@ async function auth()
 
 	fetch_result = await fetch
 	(
-		"/hps-gems/server/api/auth.php",
+		"/server/api/auth.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -125,7 +125,7 @@ function sendData()
 
 	fetch
 	(
-		"/hps-gems/server/api/update-user.php",
+		"/server/api/update-user.php",
 		{
 			method: "POST",
 			headers: {
@@ -156,7 +156,7 @@ function sendData()
 		(res_data) =>
 		{
 			if(res_data.code === 200)
-				window.location = "/hps-gems/client/html/profile.html";
+				window.location = "/client/html/profile.html";
 			else
 			{
 				errors = res_data.errors;

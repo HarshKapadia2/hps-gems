@@ -48,7 +48,7 @@ async function auth()
 
 	fetch_result = await fetch
 	(
-		"/hps-gems/server/api/auth.php",
+		"/server/api/auth.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -99,7 +99,7 @@ function getCheckoutDetails()
 {
 	fetch
 	(
-		"/hps-gems/server/api/checkout.php",
+		"/server/api/checkout.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -167,7 +167,7 @@ function placeOrder()
 {
 	fetch
 	(
-		"/hps-gems/server/api/place-order.php",
+		"/server/api/place-order.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -193,7 +193,7 @@ function placeOrder()
 		(res_data) =>
 		{
 			if(res_data.code === 200)
-				window.location = "/hps-gems/client/html/cart.html";
+				window.location = "/client/html/cart.html";
 			else
 			{
 				createNavLink("Log In/Sign Up", "./signup.html");

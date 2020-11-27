@@ -20,7 +20,7 @@ window.addEventListener
 	}
 );
 
-checkout_btn.addEventListener("click", () => window.location = "/hps-gems/client/html/checkout.html");
+checkout_btn.addEventListener("click", () => window.location = "/client/html/checkout.html");
 
 
 async function auth()
@@ -39,7 +39,7 @@ async function auth()
 
 	fetch_result = await fetch
 	(
-		"/hps-gems/server/api/auth.php",
+		"/server/api/auth.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -90,7 +90,7 @@ async function getCartProducts()
 {
 	await fetch
 	(
-		"/hps-gems/server/api/cart.php",
+		"/server/api/cart.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -148,7 +148,7 @@ function removeProduct(row, id, qty, price)
 {
 	fetch
 	(
-		"/hps-gems/server/api/remove-product.php",
+		"/server/api/remove-product.php",
 		{
 			method: "POST",
 			headers: {

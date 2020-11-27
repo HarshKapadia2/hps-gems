@@ -43,7 +43,7 @@ function getProduct(prod_id)
 {
 	fetch
 	(
-		"/hps-gems/server/api/get-single-product.php",
+		"/server/api/get-single-product.php",
 		{
 			method: "POST",
 			headers: {
@@ -112,7 +112,7 @@ function auth()
 
 	fetch
 	(
-		"/hps-gems/server/api/auth.php",
+		"/server/api/auth.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -170,7 +170,7 @@ function addToCart()
 	
 	fetch
 	(
-		"/hps-gems/server/api/add-to-cart.php",
+		"/server/api/add-to-cart.php",
 		{
 			method: "POST",
 			headers: {
@@ -200,7 +200,7 @@ function addToCart()
 		(res_data) =>
 		{
 			if(res_data.code === 200)
-				window.location = "/hps-gems/client/html/cart.html";
+				window.location = "/client/html/cart.html";
 			else
 			{
 				errors = res_data.errors;

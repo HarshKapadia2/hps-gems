@@ -19,7 +19,7 @@ function displayProducts()
 {
 	fetch
 	(
-		"/hps-gems/server/api/get-all-products.php",
+		"/server/api/get-all-products.php",
 		{
 			headers: {
 				"Accept": "application/json"
@@ -78,7 +78,7 @@ function auth()
 
 	fetch
 	(
-		"/hps-gems/server/api/auth.php",
+		"/server/api/auth.php",
 		{
 			headers: {
 				"Accept": "application/json",

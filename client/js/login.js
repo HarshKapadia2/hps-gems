@@ -77,7 +77,7 @@ function sendData()
 
 	fetch
 	(
-		"/hps-gems/server/api/login.php",
+		"/server/api/login.php",
 		{
 			method: "POST",
 			headers: {
@@ -110,7 +110,7 @@ function sendData()
 			if(res_data.code === 200)
 			{
 				localStorage.setItem("hpsgemstoken", res_data.data.token);
-				window.location = "/hps-gems/index.html";
+				window.location = "/index.html";
 			}
 			else
 			{

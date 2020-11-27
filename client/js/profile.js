@@ -20,7 +20,7 @@ window.addEventListener
 	}
 );
 
-update_btn.addEventListener("click", () => window.location = "/hps-gems/client/html/update.html");
+update_btn.addEventListener("click", () => window.location = "/client/html/update.html");
 
 
 async function auth()
@@ -39,7 +39,7 @@ async function auth()
 
 	fetch_result = await fetch
 	(
-		"/hps-gems/server/api/auth.php",
+		"/server/api/auth.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -90,7 +90,7 @@ function getProfile()
 {
 	fetch
 	(
-		"/hps-gems/server/api/get-user.php",
+		"/server/api/get-user.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -140,7 +140,7 @@ function logOut()
 {
 	fetch
 	(
-		"/hps-gems/server/api/logout.php",
+		"/server/api/logout.php",
 		{
 			headers: {
 				"Accept": "application/json",
@@ -171,7 +171,7 @@ function logOut()
 			{
 				localStorage.removeItem("hpsgemstoken");
 
-				window.location = "/hps-gems/index.html";
+				window.location = "/index.html";
 			}
 			else
 			{
