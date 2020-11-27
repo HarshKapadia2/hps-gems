@@ -124,7 +124,7 @@ function getCheckoutDetails()
 			if(res_data.code === 200)
 			{
 				address.innerText = `Address: ${res_data.data.address}`;
-				order_date.innerText = `Order date: ${Date.now()}`;
+				order_date.innerText = `Order date: ${todaysDate()}`;
 				shipping_price.innerText = "Rs. 100";
 
 				for(let i = 0; i < res_data.data.item_count; i++)
@@ -196,4 +196,17 @@ function displayErrors()
 	}
 
 	errors = [];
+}
+
+function todaysDate()
+{
+	let today = new Date();
+
+	const dd = String(today.getDate()).padStart(2, '0');
+	const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0
+	const yyyy = today.getFullYear();
+
+	today = yyyy + "-" + mm + "-" + dd;
+	
+	return today;
 }
