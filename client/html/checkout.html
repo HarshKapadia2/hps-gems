@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<script defer src="../js/checkout.js"></script>
 		
         <link rel="stylesheet" type="text/css" href="../css/base.css">
 		<link rel="stylesheet" type="text/css" href="../css/header.css">
@@ -29,26 +31,17 @@
 		<div id="main-title">Check Out</div>
 
         <div class="details">
-            <div class="order-items"> 
+            <div class="order-items">
+				<noscript class="error-style">You need to enable JavaScript to run this web app.</noscript>
+				<div id="errors" class="error-style"></div>
+
 				<h2 class="data-heading">Shipping</h2>
 				
-                <div class="data">Address: Akurli Road, Anita Nagar, Bldg No.11, C Wing, Flat No.104, Mumbai 400101, India</div>
-				<div class="data border">Order Date: 20th November</div>
+                <div class="data" id="address"></div>
+				<div class="data border" id="order-date"></div>
 				
                 <h2 class="data-heading">Order items</h2>
-                <div id="items">
-                    <div class="item">
-                        <div class="img"><img src="#" alt="img"></div>
-                        <div class="name">Amethyst</div>
-                        <div class="rate">1 x $399.99 = $399.99</div>
-                    </div>
-
-                    <div class="item">
-                        <div class="img"><img src="#" alt="img"></div>
-                        <div class="name">Aquamarine</div>
-                        <div class="rate">1 x $49.99 = $49.99</div>
-                    </div>
-                </div>
+                <div id="items"></div>
             </div>
 
             <div class="summary">
@@ -59,28 +52,28 @@
                     <tr>
                         <td>
                             <div class="left">Items</div>
-                            <div class="right">$449.98</div>
+                            <div class="right" id="total-items-price"></div>
                         </td>
                     </tr>  
                     
                     <tr>
                         <td>
                             <div class="left">Shipping</div>
-                            <div class="right">$0.00</div>
+                            <div class="right" id="shipping-price"></div>
                         </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <div class="left">Tax</div>
-                            <div class="right">$67.50</div>
+                            <div class="left">Tax (2%)</div>
+                            <div class="right" id="tax"></div>
                         </td>
                     </tr>
 
                     <tr>
                         <td>
                             <div class="left">Total</div>
-                            <div class="right">$517.48</div>
+                            <div class="right" id="final-price"></div>
                         </td>
                     </tr>
                 </table>
