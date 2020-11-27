@@ -146,11 +146,6 @@ async function getCartProducts()
 
 function removeProduct(row, id, qty, price)
 {
-	const form_data = {
-		id: id,
-		qty: qty
-	};
-
 	fetch
 	(
 		"/hps-gems/server/api/remove-product.php",
@@ -161,7 +156,7 @@ function removeProduct(row, id, qty, price)
 				"Content-Type": "application/json",
 				"Authentication": `Bearer ${token}`
 			},
-			body: JSON.stringify(form_data)
+			body: JSON.stringify({ id: id })
 		}
 	).then
 	(

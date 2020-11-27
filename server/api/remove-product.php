@@ -36,15 +36,13 @@
 				// Cleanse data
 				$prod_id = htmlspecialchars(strip_tags(trim($data->id)));
 				$prod_id = filter_var($prod_id, FILTER_SANITIZE_NUMBER_INT);
-				$ordered_qty = htmlspecialchars(strip_tags(trim($data->qty)));
-				$ordered_qty = filter_var($ordered_qty, FILTER_SANITIZE_NUMBER_INT);
 		
 				// Validation
-				if($prod_id == "" || $ordered_qty == "")
+				if($prod_id == "")
 					array_push($errors, "Please enter all fields.");
-				if(!filter_var($prod_id, FILTER_VALIDATE_INT) || !filter_var($ordered_qty, FILTER_VALIDATE_INT))
+				if(!filter_var($prod_id, FILTER_VALIDATE_INT))
 					array_push($errors, "Positive integer inputs only.");
-				if($ordered_qty <= 0 || $prod_id <= 0)
+				if($prod_id <= 0)
 					array_push($errors, "Positive integer inputs only.");
 		
 				if(count($errors) > 0)
@@ -61,21 +59,28 @@
 					// Send data to 'OrderDetail.php'
 					$order_detail->user_id = $auth_result["data"]["user_id"];
 					$order_detail->prod_id = $prod_id;
-		
-					$order_result = $order_detail->deleteOrder();
-		
-					if($order_result["status"] === "success")
+
+					$get_order_result = $order_detail->getSingleUndeliveredOrder();
+
+					if($get_order_result["status"] === "success")
 					{
-						// Update product table
-						$product->id = $prod_id;
-						$product->qty = $ordered_qty; // Will add this qty to existing qty in fn
-	
-						$prod_qty_update_result = $product->addQty();
-	
-						if($prod_qty_update_result["status"] === "success")
-							echo json_encode(array("status" => "OK", "code" => 200, "data" => array(), "errors" => array()));
+						$delete_order_result = $order_detail->deleteOrder();
+			
+						if($delete_order_result["status"] === "success")
+						{
+							// Update product table
+							$product->id = $prod_id;
+							$product->qty = $get_order_result["data"]["qty"]; // Will add this qty to existing qty in fn
+		
+							$prod_qty_update_result = $product->addQty();
+		
+							if($prod_qty_update_result["status"] === "success")
+								echo json_encode(array("status" => "OK", "code" => 200, "data" => array(), "errors" => array()));
+							else
+								echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error.")));
+						}
 						else
-							echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error.")));
+							echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error")));
 					}
 					else
 						echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error")));
