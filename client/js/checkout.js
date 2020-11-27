@@ -26,6 +26,8 @@ window.addEventListener
 	}
 );
 
+order_btn.addEventListener("click", () => placeOrder());
+
 
 async function auth()
 {
@@ -137,6 +139,50 @@ function getCheckoutDetails()
 				tax.innerText = `Rs. ${0.02 * total_price}`;
 				final_price.innerText = `Rs. ${100 + (0.02 * total_price) + total_price}`;
 			}
+			else
+			{
+				createNavLink("Log In/Sign Up", "./signup.html");
+
+				errors = res_data.data.errors;
+				displayErrors();
+
+				throw new Error(`${res_data.code} ${res_data.status}: ${res_data.errors}`);
+			}
+		}
+	).catch((err) => console.error(err));
+}
+
+function placeOrder()
+{
+	fetch
+	(
+		"/hps-gems/server/api/place-order.php",
+		{
+			headers: {
+				"Accept": "application/json",
+				"Authentication": `Bearer ${token}`
+			}
+		}
+	).then
+	(
+		(res) =>
+		{
+			if(res.ok)
+				return res.json();
+			else
+			{
+				errors.push("Failure in fetching data.");
+				displayErrors();
+
+				throw new Error("Failure in fetching data.");
+			}
+		}
+	).then
+	(
+		(res_data) =>
+		{
+			if(res_data.code === 200)
+				window.location = "/hps-gems/client/html/cart.html";
 			else
 			{
 				createNavLink("Log In/Sign Up", "./signup.html");
