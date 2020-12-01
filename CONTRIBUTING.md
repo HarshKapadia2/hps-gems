@@ -2,9 +2,9 @@
 
 ## Technologies Used
 
-Front end: HTML, vanilla CSS and vanilla JS (with Web Components and Fetch API)
-
-Back end: PHP (with PDO) and MySQL
+- Front end: HTML, vanilla CSS and vanilla JS (with Web Components and Fetch API)
+- Back end: PHP (with PDO) and MySQL
+- Resources to learn these technologies can be found in my [web-dev repo](https://github.com/HarshKapadia2/web-dev).
 
 ## Local Setup
 
