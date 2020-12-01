@@ -17,6 +17,8 @@
 
 ## Hosting
 
+> NOTE: This project is hosted from the `deploy` branch.
+
 #### Heroku Hosting (PHP with MySQL)
 
 - Heroku instructions: https://devcenter.heroku.com/articles/deploying-php
