@@ -7,22 +7,7 @@ let errors = [];
 
 const token = localStorage.getItem("hpsgemstoken");
 
-window.addEventListener
-(
-	"load",
-	() =>
-	{
-		if(token)
-		{
-			submit_btn.disabled = true;
-			password.disabled = true;
-			email.disabled = true;
-			
-			errors.push("You are already logged in. Happy shopping!");
-			displayErrors();
-		}
-	}
-);
+window.addEventListener("load", () => auth());
 
 submit_btn.addEventListener
 (
@@ -39,6 +24,51 @@ submit_btn.addEventListener
 	}
 );
 
+
+function auth()
+{
+	if(!token)
+		return;
+
+	fetch
+	(
+		"/hps-gems/server/api/auth.php",
+		{
+			headers: {
+				"Accept": "application/json",
+				"Authentication": `Bearer ${token}`
+			}
+		}
+	).then
+	(
+		(res) =>
+		{
+			if(res.ok)
+				return res.json();
+			else
+			{
+				errors.push("Failure in fetching data.");
+				displayErrors();
+
+				throw new Error("Failure in fetching data.");
+			}
+		}
+	).then
+	(
+		(res_data) =>
+		{
+			if(res_data.code === 200)
+			{
+				submit_btn.disabled = true;
+				password.disabled = true;
+				email.disabled = true;
+				
+				errors.push("You are already logged in. Happy shopping!");
+				displayErrors();
+			}
+		}
+	).catch((err) => { console.error(err);});
+}
 
 function validate()
 {
