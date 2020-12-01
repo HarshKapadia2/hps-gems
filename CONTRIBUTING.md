@@ -3,7 +3,7 @@
 ## Local Setup
 
 - Install [XAMPP](https://www.apachefriends.org/download.html), [WAMP](https://wampserver.aviatechno.net/) or a LAMP stack.
-- Create a database. (Schema given below.)
+- Create a database (schema given below) or import a dump file of the database that is available at [`server/config/dump_file.sql`](server/config/dump_file.sql). (Import it using phpMyAdmin or MySQL commands.)
 - Create a local environment file in the root directory of the project (`.htaccess` for XAMPP) (don't forget to add the file to `.gitignore`) and add the following environment variables to it
   - `SetEnv DB_HOST xxxx`
   - `SetEnv DB_NAME xxxx`
@@ -13,7 +13,7 @@
 
 ## Schema
 
-![](server/schema.png)
+![](server/config/schema.png)
 
 ## Hosting
 
