@@ -1,6 +1,6 @@
 # Welcome, contributors! :wave:
 
-## Technologies Used
+## Technologies Used and Resources
 
 - Front end: HTML, vanilla CSS and vanilla JS (with Web Components and Fetch API)
 - Back end: PHP (with PDO) and MySQL
@@ -12,15 +12,17 @@
 - [Install and configure XAMPP.](https://www.youtube.com/watch?v=6tCWiexc05U)
 - Create a database (schema given below) or import a dump file of the database that is available at [`server/config/dump_file.sql`](server/config/dump_file.sql). (Import it using phpMyAdmin or MySQL commands.)
 - Create a local environment file in the root directory of the project (`.htaccess` for XAMPP) (don't forget to add the file to `.gitignore`) and add the following environment variables to it, replacing `xxxx` with the vaules for your database.
-  - `SetEnv DB_HOST xxxx`
-  - `SetEnv DB_NAME xxxx`
-  - `SetEnv DB_USERNAME xxxx`
-  - `SetEnv DB_PASSWORD xxxx`
+	- `SetEnv DB_HOST xxxx`
+	- `SetEnv DB_NAME xxxx`
+	- `SetEnv DB_USERNAME xxxx`
+	- `SetEnv DB_PASSWORD xxxx`
 - Run the Apache and MySQL services and access the site at `localhost/<project_folder_name>`. PHPMyAdmin can be accessed at `localhost/phpmyadmin`.
 
 ## Schema
 
 ![server/config/schema.png](server/config/schema.png)
+
+A dump file of the database is available at [`server/config/dump_file.sql`](server/config/dump_file.sql).
 
 ## Hosting
 
@@ -40,6 +42,6 @@
 > - JawsDB (MySQL or MariaDB) can also be used as a MySQL database add-on in place of ClearDB.
 > - Both ClearDB and JawsDB have a free tier in Heroku, but might [require a credit/debit card for account verification](https://devcenter.heroku.com/articles/account-verification#when-is-verification-required).
 > - **Free (but unreliable) services for a MySQL DB**
->		- https://db4free.net/
->		- https://cloud.ametnes.com/
->		- https://remotemysql.com/
+>	- https://db4free.net/
+>	- https://cloud.ametnes.com/
+>	- https://remotemysql.com/
