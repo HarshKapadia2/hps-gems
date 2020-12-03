@@ -139,8 +139,13 @@ function getCheckoutDetails()
 				}
 
 				total_items_price.innerText = `Rs. ${total_price}`;
-				tax.innerText = `Rs. ${0.02 * total_price}`;
-				final_price.innerText = `Rs. ${100 + (0.02 * total_price) + total_price}`;
+
+				let tax_val = 0.02 * total_price;
+				// Round off (https://www.jacklmoore.com/notes/rounding-in-javascript/)
+				tax_val = Number(Math.round(tax_val + "e2") + "e-2");
+				tax.innerText = `Rs. ${tax_val}`;
+
+				final_price.innerText = `Rs. ${100 + tax_val + total_price}`;
 
 				if(order_items_count === 0)
 				{
