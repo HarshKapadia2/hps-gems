@@ -83,6 +83,8 @@ tr {
 
 .input-group {
 	margin: 1em 1em 0 1em;
+	min-width: 25vw;
+	min-height: 10vh;
 }
 
 label {
@@ -95,14 +97,22 @@ button
     width: 100%;
 }
 
+/* =============================================== MEDIA QUERIES ======================================================== */
+
 @media only screen and (max-width: 1100px) {
     img {
-        width: 50vw;
+		width: 50vw;
+		min-height: 45vh;
     }
     
     .product {
         flex-direction: column;
-    }
+	}
+	
+	.input-group
+	{
+		min-width: 0;
+	}
   }
 
 @media only screen and (max-width: 660px) {

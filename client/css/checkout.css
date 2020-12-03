@@ -116,6 +116,7 @@ button
 
     .order-items {
         flex: 1;
+		min-height: 35vh;
 	}
 	
 	.item img
