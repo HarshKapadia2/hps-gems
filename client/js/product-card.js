@@ -18,6 +18,7 @@ template.innerHTML = `
 
 		img
 		{
+			min-height: 30vh;
 			width: 15em;
 			margin: 1em;
 			border-radius: 2px;
