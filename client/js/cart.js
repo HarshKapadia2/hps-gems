@@ -182,6 +182,10 @@ function removeProduct(row, id, qty, price)
 				total_price -= parseFloat(price) * parseInt(qty);
 				updateTotalRow();
 
+				undelivered_items_count--;
+				if(undelivered_items_count === 0)
+					checkout_btn.disabled = true;
+
 				row.remove();
 			}
 			else
