@@ -23,6 +23,7 @@ table {
 	border-radius: 2px;
 	border-collapse: collapse;
 	margin: 1em 1em 2em 1em;
+	min-width: 50vw;
 }
 
 td {

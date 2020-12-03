@@ -16,9 +16,6 @@ submit_btn.addEventListener
 	{
 		e.preventDefault();
 
-		if(token)
-			return;
-		
 		if(validate())
 			sendData();
 	}

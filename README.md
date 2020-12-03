@@ -15,3 +15,7 @@
 - JAM stack project (Client side rendered)
 - Front end: HTML, vanilla CSS and vanilla JS (with Web Components and Fetch API)
 - Back end: PHP (with PDO) and MySQL
+
+## Contributions
+
+For technologies used, resources, local setup, schema, dump file and hosting instructions, please refer to the [`CONTRIBUTING.md`](CONTRIBUTING.md) file.
