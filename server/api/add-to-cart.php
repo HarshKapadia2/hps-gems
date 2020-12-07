@@ -51,7 +51,7 @@
 					echo json_encode(array("status" => "NOT ACCEPTABLE", "code" => 406, "data" => array(), "errors" => $errors));
 	
 				$product->id = $prod_id;
-				$prod_result = $product->getProduct();
+				$prod_result = $product->getQty();
 	
 				if($prod_result["status"] != "success")
 					echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error.")));
@@ -73,18 +73,7 @@
 					$order_result = $order_detail->addOrder();
 		
 					if($order_result["status"] === "success")
-					{
-						// Update product table
-						$product->id = $prod_id;
-						$product->qty = $prod_result["data"]["qty"] - $ordered_qty;
-	
-						$prod_qty_update_result = $product->updateQty();
-	
-						if($prod_qty_update_result["status"] === "success")
-							echo json_encode(array("status" => "OK", "code" => 200, "data" => array(), "errors" => array()));
-						else
-							echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error.")));
-					}
+						echo json_encode(array("status" => "OK", "code" => 200, "data" => array(), "errors" => array()));
 					else
 						echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error")));
 				}
