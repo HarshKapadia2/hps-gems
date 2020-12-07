@@ -67,18 +67,7 @@
 						$delete_order_result = $order_detail->deleteOrder();
 			
 						if($delete_order_result["status"] === "success")
-						{
-							// Update product table
-							$product->id = $prod_id;
-							$product->qty = $get_order_result["data"]["qty"]; // Will add this qty to existing qty in fn
-		
-							$prod_qty_update_result = $product->addQty();
-		
-							if($prod_qty_update_result["status"] === "success")
-								echo json_encode(array("status" => "OK", "code" => 200, "data" => array(), "errors" => array()));
-							else
-								echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error.")));
-						}
+							echo json_encode(array("status" => "OK", "code" => 200, "data" => array(), "errors" => array()));
 						else
 							echo json_encode(array("status" => "INTERNAL SERVER ERROR", "code" => 500, "data" => array(), "errors" => array("Database error")));
 					}
