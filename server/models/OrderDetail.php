@@ -4,6 +4,7 @@
 		private $conn;
 		private $table_name = "order_detail";
 
+		public $id;
 		public $user_id;
 		public $prod_id;
 		public $qty;
@@ -254,6 +255,71 @@
 
 			// Bind data
 			$stmt->bindParam(":user_id", $this->user_id);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => array());
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
+		
+		public function orderSingleProduct()
+		{
+			$query = "UPDATE
+						$this->table_name
+					SET
+						is_delivered = true,
+						date = CURRENT_TIMESTAMP
+					WHERE
+							user_id = :user_id
+						AND
+							prod_id = :prod_id
+						AND
+							is_delivered = false
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":user_id", $this->user_id);
+			$stmt->bindParam(":prod_id", $this->prod_id);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => array());
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
+
+		public function withdrawSingleOrder()
+		{
+			$query = "UPDATE
+						$this->table_name
+					SET
+						is_delivered = false,
+						date = NULL
+					WHERE
+						id = :id
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":id", $this->id);
 
 			try
 			{

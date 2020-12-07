@@ -133,5 +133,66 @@
 				return array("status" => "failure", "data" => array());
 			}
 		}
+
+		public function subtractQty()
+		{
+			$query = "UPDATE
+						$this->table_name
+					SET
+						qty = qty - :qty
+					WHERE
+							id = :id
+						AND
+							qty - :qty >= 0
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":id", $this->id);
+			$stmt->bindParam(":qty", $this->qty);
+
+			try
+			{
+				if($stmt->execute() && $stmt->rowCount() === 1)
+					return array("status" => "success", "data" => array());
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
+
+		public function getQty()
+		{
+			$query = "SELECT
+						qty
+					FROM
+						$this->table_name
+					WHERE
+						id = :id
+			";
+
+			// Prepare data
+			$stmt = $this->conn->prepare($query);
+
+			// Bind data
+			$stmt->bindParam(":id", $this->id);
+
+			try
+			{
+				if($stmt->execute())
+					return array("status" => "success", "data" => $stmt->fetch(PDO::FETCH_ASSOC));
+				else
+					return array("status" => "failure", "data" => array());
+			}
+			catch(PDOException $e)
+			{
+				return array("status" => "failure", "data" => array());
+			}
+		}
 	}
 ?>

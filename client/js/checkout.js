@@ -199,11 +199,11 @@ function placeOrder()
 		{
 			if(res_data.code === 200)
 				window.location = "/client/html/cart.html";
+			else if(res_data.code === 401)
+				createNavLink("Log In/Sign Up", "./signup.html");
 			else
 			{
-				createNavLink("Log In/Sign Up", "./signup.html");
-
-				errors = res_data.data.errors;
+				errors = res_data.errors;
 				displayErrors();
 
 				throw new Error(`${res_data.code} ${res_data.status}: ${res_data.errors}`);

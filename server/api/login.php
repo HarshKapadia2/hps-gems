@@ -44,7 +44,10 @@
 			if($result_1["status"] === "success")
 			{
 				// Verify password
-				if(password_verify($password, $result_1["data"]["password"]))
+				$pass_input = isset($result_1["data"]["password"]) ? $result_1["data"]["password"] : "";
+				$pass_check = password_verify($password, $pass_input);
+
+				if($pass_check)
 				{
 					// Generate token (64 char hex str)
 					$token = bin2hex(random_bytes(32));
