@@ -10,11 +10,13 @@ main
 
 #main-logo
 {
+	font-size: 60px;
 	font-size: clamp(60px, 10vw, 100px);
 }
 
 #tag-line
 {
+	font-size: 20px;
 	font-size: clamp(20px, 3vw, 55px);
 }
 
