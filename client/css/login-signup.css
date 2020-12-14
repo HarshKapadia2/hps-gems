@@ -8,5 +8,6 @@ main
 
 #main-title
 {
+	font-size: 60px;
 	font-size: clamp(60px, 10vw, 100px);
 }
