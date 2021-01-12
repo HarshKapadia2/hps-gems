@@ -36,8 +36,10 @@
 			array_push($errors, "The length of the password should be more than 5 characters.");
 		if($pass_1 != $pass_2)
 			array_push($errors, "The two passwords should match.");
-		if(strlen($ph_no) != 13 || substr($ph_no, 0, 1) != "+") // '+' added by JS
-			array_push($errors, "Phone number format: 2 digit country code followed by 10 digit phone number (Eg: 919876543210)");
+		if(strlen($ph_no) < 4 || strlen($ph_no) > 14)
+			array_push($errors, "Phone number format: Country code followed by phone number (Eg: +919876543210)");
+		if(substr($ph_no, 0, 1) != "+")
+			array_push($errors, "Phone number format: The country code should be preceded with a '+' (Eg: +919876543210)");
 
 		if(count($errors) > 0)
 			echo json_encode(array("status" => "NOT ACCEPTABLE", "code" => 406, "data" => array(), "errors" => $errors));
