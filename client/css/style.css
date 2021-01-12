@@ -379,8 +379,9 @@ h4
     margin: 0%;
 }
 
-.input-group
+#product-table #input-group
 {
+	padding: 1% 0;
 	margin: 1em 1em 0 1em;
 	min-width: 25vw;
 	min-height: 10vh;
@@ -389,6 +390,13 @@ h4
 #product-table label
 {
 	font-size: 20px;
+}
+
+#input-group input:focus ~ label
+{
+	top: -4em;
+    color: #616161;
+	font-size: 16px;
 }
 
 .add-to-cart button
@@ -733,9 +741,15 @@ nav li:hover
         flex-direction: column;
 	}
 	
-	.input-group
+	#product-table #input-group
 	{
+		padding: 3% 0;
 		min-width: 0;
+	}
+
+	#input-group input:focus ~ label
+	{
+		font-size: 15px;
 	}
   }
 
