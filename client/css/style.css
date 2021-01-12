@@ -1,0 +1,863 @@
+/* ============================================= TEMPLATES ================================================ */
+
+
+/* ==================================================== BASE ================================================= */
+
+*
+{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+	background-color: #fafafa;
+	color: black;
+	font-family: sans-serif;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+.error-style
+{
+	padding: 1em 0;
+	color: red;
+	text-align: center;
+	max-width: 90vw;
+}
+
+.left
+{
+	float: left;
+    width: 50%;
+}
+
+.right
+{
+	float: right;
+    width: 50%;
+}
+
+#main-tag
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5em 0;
+}
+
+#main-title
+{
+	font-size: 60px;
+	font-size: clamp(60px, 10vw, 100px);
+}
+
+#main-title-small
+{
+	font-size: 40px;
+	font-size: clamp(40px, 10vw, 100px);
+}
+
+
+/* ===================================================== HEADER ===================================================== */
+
+header
+{
+	display: flex;
+	align-items: center;
+	background-color: #212121;
+	height: 10vh;
+	color: #fafafa;
+}
+
+#header-content
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 70vw;
+	margin: auto;	
+}
+
+header a
+{
+	color: #9e9e9e;
+}
+
+#logo
+{
+	font-size: clamp(20px, 2vw, 100px);
+	color: #fafafa;
+	text-align: center;
+}
+
+ul
+{
+	list-style: none;
+	display: flex;
+	align-items: center;
+}
+
+li
+{
+	font-size: 18px;
+	padding: 1em 2em;
+	margin: 0 0.5em;
+	text-align: center;
+}
+
+li:hover
+{
+	background-color: #424242;
+	color: #fafafa;
+	border-radius: 2px;
+}
+
+
+/* ===================================================== FORM ========================================================== */
+
+.form
+{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 2%;
+}
+
+.input-group, .textarea-group
+{
+    padding: 1% 0;
+}
+
+input, textarea
+{
+    color: inherit;
+    font-family: inherit;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1.5%;
+    font-size: 20px;
+}
+
+input:focus, textarea:focus
+{
+    background-color: transparent;
+    outline: transparent;
+    border-bottom: 2px solid #bdbdbd;
+}
+
+input:disabled, textarea:disabled
+{
+	cursor: not-allowed;
+}
+
+input::placeholder, textarea::placeholder
+{
+    color: transparent;
+}
+
+label
+{
+    color: #757575;
+    position: relative;
+    left: 0.5em;
+    top: -2em;
+	cursor: auto;
+    transition: 0.3s ease all;
+}
+
+input:focus ~ label, input:not(:placeholder-shown) ~ label
+{
+    top: -4em;
+    color: #616161;
+    font-size: 15px;
+}
+
+textarea:focus ~ label, textarea:not(:placeholder-shown) ~ label
+{
+    top: -10.5em;
+    color: #616161;
+    font-size: 15px;
+}
+
+.button-div
+{
+    display: flex;
+    justify-content: center;
+}
+
+button
+{
+    padding: 2%;
+    width: 50%;
+    border: 1px solid;
+    border-color: #e0e0e0;
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: 18px;
+    background-color: #fafafa;
+    color: black;
+    box-shadow: 0 0 10px #eeeeee;
+}
+
+button:hover
+{
+    background-color: #212121;
+    color: #fafafa;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:disabled
+{
+	background-color: #e0e0e0;
+	color: #757575;
+	cursor: not-allowed;
+}
+
+
+/* ======================================================== FOOTER ======================================================== */
+
+footer
+{
+	height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #212121;
+	color: #fafafa;
+}
+
+footer a
+{
+	color: #fafafa;
+	text-decoration: underline;
+}
+
+
+
+
+/* ==================================================== CUSTOM CSS ================================================ */
+
+
+/* =================================================== HOME PAGE ========================================================= */
+
+section
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5em 0;
+}
+
+#tag-line
+{
+	font-size: 20px;
+	font-size: clamp(20px, 3vw, 55px);
+}
+
+#products-section
+{
+	width: 70vw;
+	margin: auto;
+}
+
+#products-text
+{
+	font-size: 30px;
+}
+
+#product-cards
+{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 0.5em;
+	padding: 2em 0 5em 0;
+	align-items: center;
+}
+
+
+/* ====================================== LOGIN/SIGNUP/UPDATE ======================================== */
+
+#main-title-update
+{
+	font-size: 40px;
+	font-size: clamp(40px, 10vw, 100px);
+}
+
+
+/* ========================================= PRODUCT PAGE ================================================ */
+
+.product
+{
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 3%;
+}
+
+.content
+{
+    display: flex;
+    flex-direction: row;
+    margin: 1em;
+}
+
+.description
+{
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex: 1;
+}
+
+.add-to-cart
+{
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+    flex: 1;
+	margin: 1em;
+}
+
+#image
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#image img
+{
+	width: 30vw;
+	border-radius: 2px;
+}
+
+.description h2
+{
+    font-size: 40px;
+    font-weight: lighter;
+	padding: 0.5em;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+h4
+{
+	padding: 0 1em;
+    font-size: 20px;
+	font-weight: lighter;
+}
+
+.row
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#product-table
+{
+	margin: 1em 0;
+	border: 1px solid #e0e0e0;
+	border-radius: 2px;
+}
+
+#product-table th, #product-table td
+{
+	display: flex;
+	align-items: center;
+	padding: 1em 0;
+}
+
+#product-table tr
+{
+    margin: 0%;
+}
+
+.input-group
+{
+	margin: 1em 1em 0 1em;
+	min-width: 25vw;
+	min-height: 10vh;
+}
+
+#product-table label
+{
+	font-size: 20px;
+}
+
+.add-to-cart button
+{
+	padding: 5% 2%;
+    width: 100%;
+}
+
+
+/* ============================================ CART ================================================ */
+
+#undelivered-items
+{
+	padding-top: 5em;
+	min-height: 22vh;
+}
+
+#undelivered-items, #delivered-items
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: auto;
+	width: 90vw;
+	margin: auto;
+}
+
+.shopping-table-name
+{
+	padding: 1em 0;
+	text-align: center;
+}
+
+#delivered-items-table img, #undelivered-items-table img
+{
+	width: 8vw;
+	border-radius: 2px;
+}
+
+#delivered-items-table th, #undelivered-items-table th, #delivered-items-table td, #undelivered-items-table td
+{
+	padding: 0.5em 1em;
+	text-align: center;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+main a
+{
+	font-size: 18px;
+	color: #757575;
+}
+
+main a:hover
+{
+	text-decoration: underline;
+}
+
+#undelivered-items-table button
+{
+	padding: 0.5em 1em;
+	width: 100%;
+	text-align: center;
+}
+
+#undelivered-items-table button:hover
+{
+	background-color: #e53935;
+}
+
+#total-row
+{
+	font-weight: bold;
+}
+
+#checkout-btn
+{
+	margin: 2em 0;
+}
+
+/* ============================================= CHECKOUT ====================================== */
+
+#main-title-checkout
+{
+	display: flex;
+	justify-content: center;
+	padding: 1em 0;
+	font-size: 60px;
+	font-size: clamp(60px, 10vw, 100px);
+}
+
+.details
+{
+    display: flex;
+	justify-content: center;
+	width: 90vw;
+	margin: auto;
+    margin-bottom: 2em;
+}
+
+.order-items
+{
+    display: flex;
+	flex-direction: column;
+	flex: 0.65;
+}
+
+.data-heading
+{
+	padding: 0.5em 0;
+	font-weight: lighter;
+	font-size: 30px;
+}
+
+.data
+{
+    padding-bottom: 1em;
+}
+
+.border
+{
+	border-bottom: 1px solid #e0e0e0;
+}
+
+#items
+{
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.item
+{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	padding: 0.5em 0;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.item-img
+{
+    flex: 0.1;
+}
+
+.item img
+{
+	width: 5vw;
+}
+
+.item-name
+{
+    flex: 0.6;
+}
+
+.item-rate
+{
+    flex: 0.3;
+}
+
+.summary
+{
+    display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	margin-left: 1em;
+	flex: 0.35;
+}
+
+#summary-heading
+{
+	text-align: left;
+	font-weight: lighter;
+	font-size: 30px;
+}
+
+#checkout-table
+{
+	padding: 1em;
+	margin-bottom: 1em;
+	border: 1px solid #e0e0e0;
+	border-radius: 2px;
+}
+
+#checkout-table th, #checkout-table td
+{
+    padding: 1em 0;
+}
+
+#checkout-table td
+{
+    font-size: 18px;
+}
+
+.summary button
+{
+	padding: 1em 0;
+    width: 100%;
+}
+
+/* ============================================ PROFILE ============================================== */
+
+nav li
+{
+	color: #9e9e9e;
+	cursor: pointer;
+}
+
+nav li:hover
+{
+	color: #fafafa;
+}
+
+#overflow-div
+{
+	display: flex;
+	justify-content: center;
+	overflow: auto;
+	width: 90vw;
+	margin: auto;
+}
+
+#profile-table
+{
+	border-collapse: collapse;
+	margin: 1em 1em 2em 1em;
+	min-width: 50vw;
+}
+
+#profile-table td
+{
+    font-size: 18px;
+    border: 1px solid #ddd;
+    padding: 1em;
+}
+
+
+
+
+/* =========================================== MEDIA QUERIES ========================================== */
+
+
+/* ========================================== TEMPLATE MEDIA QUERIES ======================================= */
+
+
+/* HEADER */
+
+@media screen and (max-width: 600px)
+{
+	#header-content
+	{
+		width: 90vw;
+	}
+
+	li
+	{
+		padding: 0.5em 0.5em;
+		margin: 0 0.1em;
+	}
+}
+
+
+/* FORM */
+
+@media screen and (max-width: 1200px)
+{
+    .form
+    {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 680px)
+{
+    .form
+    {
+		width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+	.form
+	{
+		padding: 6% 4%;
+		padding-top: 15%;
+	}
+
+	.input-group, .textarea-group
+    {
+		padding: 3% 0;
+	}
+	
+	input, textarea
+	{
+		font-size: 15px;
+	}
+
+	input:focus ~ label, input:not(:placeholder-shown) ~ label
+	{
+		top: -3.5em;
+		left: 0.1em;
+	}
+
+	textarea:focus ~ label, textarea:not(:placeholder-shown) ~ label
+	{
+		top: -8.5em;
+		left: 0.2em;
+    }
+	
+    button
+    {
+        font-size: 15px;
+    }
+}
+
+
+/* FOOTER */
+
+@media screen and (max-width:450px)
+{
+	footer
+	{
+		text-align: center;
+		padding: 0 1em;
+	}
+}
+
+
+/* ========================================== CUSTOM MEDIA QUERIES ======================================= */
+
+
+/* PRODUCT PAGE */
+
+@media only screen and (max-width: 1100px)
+{
+	#image img
+	{
+		width: 50vw;
+		min-height: 45vh;
+    }
+    
+	.product
+	{
+        flex-direction: column;
+	}
+	
+	.input-group
+	{
+		min-width: 0;
+	}
+  }
+
+@media only screen and (max-width: 660px)
+{
+	#image img
+	{
+        width: 90vw;
+    }
+
+	.content
+	{
+        flex-direction: column;
+    }
+
+	.add-to-cart
+	{
+        flex-direction: column;
+	}
+	
+	#product-table label
+	{
+		font-size: 17px;
+	}
+
+	.description h2
+	{
+        font-size: 30px;
+    }
+    
+	h4
+	{
+        font-size: 17px;
+	}
+	
+	.add-to-cart button
+    {
+		padding: 3%;
+    }
+}
+
+/* CART */
+
+@media screen and (max-width: 650px)
+{
+	#delivered-items-table, #undelivered-items-table
+	{
+		margin-left: 15em;
+	}
+
+	#delivered-items-table img, #undelivered-items-table img
+	{
+		width: 15vw;
+	}
+	
+	#undelivered-items
+	{
+		min-height: 40vh;
+	}
+}
+
+@media screen and (max-width: 360px)
+{
+	#delivered-items-table img, #undelivered-items-table img
+	{
+		width: 20vw;
+	}
+
+	#delivered-items-table, #undelivered-items-table
+	{
+		margin-left: 15em;
+	}
+}
+
+/* CHECKOUT */
+
+@media only screen and (max-width: 800px)
+{
+	.details
+	{
+		flex-direction: column;
+		width: 85vw;
+    }
+
+	.order-items
+	{
+        flex: 1;
+		min-height: 35vh;
+	}
+	
+	.item img
+	{
+		width: 10vw;
+	}
+
+	.summary
+	{
+		margin-top: 1em;
+		margin-left: 0;
+        flex: 1;
+    }
+}
+
+/* PROFILE */
+
+@media screen and (max-width: 650px)
+{
+	#profile-table table
+	{
+		margin-left: 10em;
+	}
+}
+
+@media screen and (max-width: 360px)
+{
+	#profile-table table
+	{
+		margin-left: 5em;
+	}
+
+	#profile-table td
+	{
+		font-size: 13px;
+	}
+}
