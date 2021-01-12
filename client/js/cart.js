@@ -212,6 +212,7 @@ function createRow(table, data)
 	let img = document.createElement("img");
 
 	img.src = data.pic_url;
+	img.alt = data.name;
 	img_a.href = `./product.html?id=${data.prod_id}`;
 	name_a.innerText = data.name;
 	name_a.href = `./product.html?id=${data.prod_id}`;

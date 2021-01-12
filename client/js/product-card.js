@@ -69,6 +69,7 @@ class ProductCard extends HTMLElement
 		this.shadowRoot.querySelector(".product-title").innerText = name;
 		this.shadowRoot.querySelector(".product-cost").innerText = price;
 		this.shadowRoot.querySelector("img").src = pic_url;
+		this.shadowRoot.querySelector("img").alt = name;
 		
 		const links = this.shadowRoot.querySelectorAll("a");
 		for(let i = 0; i < links.length; i++)
