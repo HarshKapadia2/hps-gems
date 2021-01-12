@@ -15,11 +15,7 @@
 		
 		<script defer src="../js/product.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="../css/base.css">
-		<link rel="stylesheet" type="text/css" href="../css/header.css">
-		<link rel="stylesheet" type="text/css" href="../css/form.css">
-        <link rel="stylesheet" type="text/css" href="../css/product-page.css">
-        <link rel="stylesheet" type="text/css" href="../css/footer.css">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 		<link rel="preconnect" href="https://firebasestorage.googleapis.com" crossorigin>
 		<link rel="shortcut icon" href="https://firebasestorage.googleapis.com/v0/b/hps-gems.appspot.com/o/logo%2Ffavicon.ico?alt=media&token=01ea51aa-eb17-419c-9cb0-fbb7149d09e5" type="image/x-icon">
@@ -38,12 +34,12 @@
 			</div>
 		</header>
 
-        <div class="product">
+        <main class="product">
             <div id="image">
                 <img />
             </div>
             
-            <div class="content">
+            <section class="content">
                 <div class="description">
 					<noscript class="error-style">You need to enable JavaScript to run this web app.</noscript>
 					<div id="errors" class="error-style"></div>
@@ -54,7 +50,7 @@
                 </div>
 
                 <div class="add-to-cart">
-                    <table>
+                    <table id="product-table">
                         <tr>
                             <td>
                                 <div class="left"><h4>Price/piece</div>
@@ -77,7 +73,7 @@
                         </tr>
 					</table>
 
-					<table>
+					<table id="product-table">
 						<tr>
 							<td>
 								<div class="input-group">
@@ -90,8 +86,8 @@
 					
 					<button type="submit"><h4>Add to cart</h4></button>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
 
         <footer>
 			<div>
