@@ -216,9 +216,9 @@ function validate(qty)
 {
 	if(isNaN(qty))
 		errors.push("Please enter the quantity to be ordered.");
-	if(qty <= 0)
+	else if(qty <= 0)
 		errors.push("The quantity ordered should be an integer more than 0.");
-	if(qty > parseInt(available_qty.innerText))
+	else if(qty > parseInt(available_qty.innerText))
 		errors.push("You cannot order more than the available quantity.");
 
 	if(errors.length > 0)
@@ -244,7 +244,10 @@ function createNavLink(text, url)
 
 function displayErrors()
 {
-	for(let i = 0; i < errors.length; i++){
+	error_div.innerHTML = "";
+
+	for(let i = 0; i < errors.length; i++)
+	{
 		let div = document.createElement("div");
 		div.innerText = errors[i];
 		error_div.appendChild(div);

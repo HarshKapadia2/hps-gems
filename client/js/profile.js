@@ -208,7 +208,10 @@ function createLogOutNavLink()
 
 function displayErrors()
 {
-	for(let i = 0; i < errors.length; i++){
+	error_div.innerHTML = "";
+
+	for(let i = 0; i < errors.length; i++)
+	{
 		let div = document.createElement("div");
 		div.innerText = errors[i];
 		error_div.appendChild(div);

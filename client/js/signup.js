@@ -82,14 +82,19 @@ function validate()
 {
 	if(f_name.value === "" || l_name.value === "" || email.value === "" || pass_1.value === "" || pass_2.value === "" || ph_no.value === "" || address.value === "")
 		errors.push("Please enter all fields.");
-	if(pass_1.value.length < 6 || pass_2.value.length < 6)
-		errors.push("The length of the password should be more than 5 characters.");
-	if(pass_1.value != pass_2.value)
-		errors.push("The two passwords should match.");
-	if(ph_no.length < 4 || ph_no.length > 14)
-		errors.push("Phone number format: Country code followed by phone number (Eg: +919876543210)");
-	if(ph_no.value[0] != "+")
-		errors.push("Phone number format: The country code should be preceded with a '+' (Eg: +919876543210)");
+	else
+	{
+		if(pass_1.value.length < 6 || pass_2.value.length < 6)
+			errors.push("The length of the password should be more than 5 characters.");
+		else if(pass_1.value != pass_2.value)
+			errors.push("The two passwords should match.");
+		else if(ph_no.length < 4 || ph_no.length > 14)
+			errors.push("Phone number format: Country code followed by phone number (Eg: +919876543210)");
+		else if(ph_no.value[0] != "+")
+			errors.push("Phone number format: The country code should be preceded with a '+' (Eg: +919876543210)");
+		else if(!ph_no.value.match(/^\+[0-9]+$/))
+			errors.push("Phone number format: Country code followed by phone number (Eg: +919876543210)");
+	}
 
 	if(errors.length > 0)
 	{
@@ -102,6 +107,8 @@ function validate()
 
 function displayErrors()
 {
+	error_div.innerHTML = "";
+
 	for(let i = 0; i < errors.length; i++)
 	{
 		let div = document.createElement("div");

@@ -27,10 +27,8 @@
 		// Validation
 		if($email === "" || $password === "")
 			array_push($errors, "Please enter all fields.");
-		if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-			array_push($errors, "Please enter a valid e-mail ID.");
-		if(strlen($password) < 6)
-			array_push($errors, "The length of the password should be more than 5 characters.");
+		else if(!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($password) < 6)
+			array_push($errors, "Invalid e-mail or password.");
 
 		if(count($errors) > 0)
 			echo json_encode(array("status" => "NOT ACCEPTABLE", "code" => 406, "data" => array(), "errors" => $errors));

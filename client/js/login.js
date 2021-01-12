@@ -71,8 +71,6 @@ function validate()
 {
 	if(email.value === "" || password.value === "")
 		errors.push("Please enter all fields.");
-	if(password.value.length < 6)
-		errors.push("The length of the password should be more than 5 characters.");
 
 	if(errors.length > 0)
 	{
@@ -85,6 +83,8 @@ function validate()
 
 function displayErrors()
 {
+	error_div.innerHTML = "";
+
 	for(let i = 0; i < errors.length; i++)
 	{
 		let div = document.createElement("div");
