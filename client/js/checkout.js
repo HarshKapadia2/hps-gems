@@ -223,6 +223,7 @@ function createItem(pic_url, name, qty, price)
 	item_div.classList.add("item");
 	img_div.classList.add("item-img");
 	img_tag.src = pic_url;
+	img_tag.alt = name;
 	name_div.classList.add("item-name");
 	name_div.innerText = name;
 	rate_div.classList.add("item-rate");
@@ -251,7 +252,10 @@ function createNavLink(text, url)
 
 function displayErrors()
 {
-	for(let i = 0; i < errors.length; i++){
+	error_div.innerHTML = "";
+
+	for(let i = 0; i < errors.length; i++)
+	{
 		let div = document.createElement("div");
 		div.innerText = errors[i];
 		error_div.appendChild(div);

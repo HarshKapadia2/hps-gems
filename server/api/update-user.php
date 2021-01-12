@@ -43,14 +43,23 @@
 				// Validation
 				if($f_name === "" || $l_name === "" || $email === "" || $pass_1 === "" || $pass_2 === "" || $ph_no === "" || $address === "")
 					array_push($errors, "Please enter all fields.");
-				if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-					array_push($errors, "Please enter a valid e-mail ID.");
-				if(strlen($pass_1) < 6 || strlen($pass_2) < 6)
-					array_push($errors, "The length of the password should be more than 5 characters.");
-				if($pass_1 != $pass_2)
-					array_push($errors, "The two passwords should match.");
-				if(strlen($ph_no) != 13 || substr($ph_no, 0, 1) != "+") // '+' added by JS
-					array_push($errors, "Phone number format: 2 digit country code followed by 10 digit phone number (Eg: 919876543210)");
+				else
+				{
+					$options = array("options" => array("regexp" => "/^\+[0-9]+$/"));
+					
+					if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+						array_push($errors, "Please enter a valid e-mail ID.");
+					else if(strlen($pass_1) < 6 || strlen($pass_2) < 6)
+						array_push($errors, "The length of the password should be more than 5 characters.");
+					else if($pass_1 != $pass_2)
+						array_push($errors, "The two passwords should match.");
+					else if(strlen($ph_no) < 4 || strlen($ph_no) > 14)
+						array_push($errors, "Phone number format: Country code followed by phone number (Eg: +919876543210)");
+					else if(substr($ph_no, 0, 1) != "+")
+						array_push($errors, "Phone number format: The country code should be preceded with a '+' (Eg: +919876543210)");
+					else if(!filter_var($ph_no, FILTER_VALIDATE_REGEXP, $options))
+						array_push($errors, "Phone number format: Country code followed by phone number (Eg: +919876543210)");
+				}
 
 				if(count($errors) > 0)
 					echo json_encode(array("status" => "NOT ACCEPTABLE", "code" => 406, "data" => array(), "errors" => $errors));

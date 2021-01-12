@@ -42,9 +42,9 @@
 				// Validation
 				if($prod_id == "" || $ordered_qty == "")
 					array_push($errors, "Please enter all fields.");
-				if(!filter_var($prod_id, FILTER_VALIDATE_INT) || !filter_var($ordered_qty, FILTER_VALIDATE_INT))
+				else if(!filter_var($prod_id, FILTER_VALIDATE_INT) || !filter_var($ordered_qty, FILTER_VALIDATE_INT))
 					array_push($errors, "Positive integer inputs only.");
-				if($ordered_qty <= 0 || $prod_id <= 0)
+				else if($ordered_qty <= 0 || $prod_id <= 0)
 					array_push($errors, "Positive integer inputs only.");
 		
 				if(count($errors) > 0)

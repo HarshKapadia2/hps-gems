@@ -212,6 +212,7 @@ function createRow(table, data)
 	let img = document.createElement("img");
 
 	img.src = data.pic_url;
+	img.alt = data.name;
 	img_a.href = `./product.html?id=${data.prod_id}`;
 	name_a.innerText = data.name;
 	name_a.href = `./product.html?id=${data.prod_id}`;
@@ -302,7 +303,10 @@ function createNavLink(text, url)
 
 function displayErrors()
 {
-	for(let i = 0; i < errors.length; i++){
+	error_div.innerHTML = "";
+
+	for(let i = 0; i < errors.length; i++)
+	{
 		let div = document.createElement("div");
 		div.innerText = errors[i];
 		error_div.appendChild(div);

@@ -10,7 +10,6 @@ const submit_btn = document.querySelector("button");
 const form = document.querySelector(".form");
 
 let errors = [];
-let new_ph_no = "";
 
 const token = localStorage.getItem("hpsgemstoken");
 
@@ -43,8 +42,6 @@ submit_btn.addEventListener
 	{
 		e.preventDefault();
 		
-		new_ph_no = "+" + ph_no.value;
-
 		if(validate())
 			sendData();
 	}
@@ -122,7 +119,7 @@ function sendData()
 		email: email.value,
 		password1: pass_1.value,
 		password2: pass_2.value,
-		ph_no: new_ph_no,
+		ph_no: ph_no.value,
 		address: address.value
 	};
 
@@ -173,14 +170,21 @@ function sendData()
 
 function validate()
 {
-	if(f_name.value === "" || l_name.value === "" || email.value === "" || pass_1.value === "" || pass_2.value === "" || new_ph_no === "" || address.value === "")
+	if(f_name.value === "" || l_name.value === "" || email.value === "" || pass_1.value === "" || pass_2.value === "" || ph_no.value === "" || address.value === "")
 		errors.push("Please enter all fields.");
-	if(pass_1.value.length < 6 || pass_2.value.length < 6)
-		errors.push("The length of the password should be more than 5 characters.");
-	if(pass_1.value != pass_2.value)
-		errors.push("The two passwords should match.");
-	if(new_ph_no.length != 13)
-		errors.push("Phone number format: 2 digit country code followed by 10 digit phone number (Eg: 919876543210)");
+	else
+	{
+		if(pass_1.value.length < 6 || pass_2.value.length < 6)
+			errors.push("The length of the password should be more than 5 characters.");
+		else if(pass_1.value != pass_2.value)
+			errors.push("The two passwords should match.");
+		else if(ph_no.length < 4 || ph_no.length > 14)
+			errors.push("Phone number format: Country code followed by phone number (Eg: +919876543210)");
+		else if(ph_no.value[0] != "+")
+			errors.push("Phone number format: The country code should be preceded with a '+' (Eg: +919876543210)");
+		else if(!ph_no.value.match(/^\+[0-9]+$/))
+			errors.push("Phone number format: Country code followed by phone number (Eg: +919876543210)");
+	}
 
 	if(errors.length > 0)
 	{
@@ -205,6 +209,8 @@ function createNavLink(text, url)
 
 function displayErrors()
 {
+	error_div.innerHTML = "";
+
 	for(let i = 0; i < errors.length; i++)
 	{
 		let div = document.createElement("div");
