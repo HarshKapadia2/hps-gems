@@ -48,7 +48,7 @@ template.innerHTML = `
 	</style>
 
 	<div class="product-card">
-		<a><img /></a>
+		<a><img loading="lazy" /></a>
 
 		<div class="product-info">
 			<a><div class="product-title"></div></a>

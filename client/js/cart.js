@@ -228,6 +228,8 @@ function createRow(table, data)
 
 	if(table === delivered_table)
 	{
+		img.loading = "lazy";
+
 		let date_td = document.createElement("td");
 		date_td.innerText = data.date;
 		tr.appendChild(date_td);
