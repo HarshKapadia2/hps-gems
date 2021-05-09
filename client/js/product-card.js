@@ -3,9 +3,7 @@ template.innerHTML = `
 	<style>
 		.product-card
 		{
-			display: grid;
-			place-content: center center;
-			width: 17em;
+			padding: 1em;
 			border: 1px solid #e0e0e0;
 			border-radius: 2px;
 		}
@@ -18,15 +16,10 @@ template.innerHTML = `
 
 		img
 		{
-			min-height: 30vh;
-			width: 15em;
-			margin: 1em;
+			width: 100%;
+			height: auto;
+			margin-bottom: 1em;
 			border-radius: 2px;
-		}
-
-		.product-info
-		{
-			padding: 0 1em 1em 1em;
 		}
 
 		.product-title
