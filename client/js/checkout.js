@@ -14,6 +14,7 @@ const order_btn = document.querySelector("button");
 let errors = [];
 let total_price = 0;
 let order_items_count = 0;
+let login_signup_btn = false;
 
 const token = localStorage.getItem("hpsgemstoken");
 
@@ -34,7 +35,13 @@ async function auth()
 {
 	if(!token)
 	{
-		createNavLink("Log In/Sign Up", "./signup.html");
+		console.log(login_signup_btn);
+		if(!login_signup_btn)
+		{
+			createNavLink("Log In/Sign Up", "./signup.html");
+			login_signup_btn = true;
+			console.log(login_signup_btn);
+		}
 
 		order_btn.disabled = true;
 
@@ -82,7 +89,13 @@ async function auth()
 			}
 			else
 			{
-				createNavLink("Log In/Sign Up", "./signup.html");
+				console.log("hi " + login_signup_btn);
+				if(!login_signup_btn)
+				{
+					createNavLink("Log In/Sign Up", "./signup.html");
+					login_signup_btn = true;
+					console.log("why " + login_signup_btn);
+				}
 
 				errors.push("Log in to view checkout.");
 				displayErrors();
@@ -157,7 +170,13 @@ function getCheckoutDetails()
 			}
 			else
 			{
-				createNavLink("Log In/Sign Up", "./signup.html");
+				console.log("hi " + login_signup_btn);
+				if(!login_signup_btn)
+				{
+					createNavLink("Log In/Sign Up", "./signup.html");
+					login_signup_btn = true;
+					console.log("why " + login_signup_btn);
+				}
 
 				errors = res_data.data.errors;
 				displayErrors();
@@ -200,7 +219,15 @@ function placeOrder()
 			if(res_data.code === 200)
 				window.location = "/hps-gems/client/html/cart.html";
 			else if(res_data.code === 401)
-				createNavLink("Log In/Sign Up", "./signup.html");
+			{
+				console.log("hi " + login_signup_btn);
+				if(!login_signup_btn)
+				{
+					createNavLink("Log In/Sign Up", "./signup.html");
+					login_signup_btn = true;
+					console.log("why " + login_signup_btn);
+				}
+			}
 			else
 			{
 				errors = res_data.errors;
@@ -243,8 +270,9 @@ function createNavLink(text, url)
 	let a = document.createElement("a");
 	let li = document.createElement("li");
 
-	li.innerText = text;
 	a.href = url;
+	a.id = "login-signup-btn";
+	li.innerText = text;
 	
 	a.appendChild(li);
 	links.appendChild(a);
