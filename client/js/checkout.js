@@ -35,12 +35,10 @@ async function auth()
 {
 	if(!token)
 	{
-		console.log(login_signup_btn);
 		if(!login_signup_btn)
 		{
 			createNavLink("Log In/Sign Up", "./signup.html");
 			login_signup_btn = true;
-			console.log(login_signup_btn);
 		}
 
 		order_btn.disabled = true;
@@ -89,12 +87,10 @@ async function auth()
 			}
 			else
 			{
-				console.log("hi " + login_signup_btn);
 				if(!login_signup_btn)
 				{
 					createNavLink("Log In/Sign Up", "./signup.html");
 					login_signup_btn = true;
-					console.log("why " + login_signup_btn);
 				}
 
 				errors.push("Log in to view checkout.");
@@ -170,12 +166,10 @@ function getCheckoutDetails()
 			}
 			else
 			{
-				console.log("hi " + login_signup_btn);
 				if(!login_signup_btn)
 				{
 					createNavLink("Log In/Sign Up", "./signup.html");
 					login_signup_btn = true;
-					console.log("why " + login_signup_btn);
 				}
 
 				errors = res_data.data.errors;
@@ -220,12 +214,10 @@ function placeOrder()
 				window.location = "/client/html/cart.html";
 			else if(res_data.code === 401)
 			{
-				console.log("hi " + login_signup_btn);
 				if(!login_signup_btn)
 				{
 					createNavLink("Log In/Sign Up", "./signup.html");
 					login_signup_btn = true;
-					console.log("why " + login_signup_btn);
 				}
 			}
 			else
