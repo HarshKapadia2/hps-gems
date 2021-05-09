@@ -54,6 +54,7 @@ a
 {
 	font-size: 60px;
 	font-size: clamp(60px, 10vw, 100px);
+	text-align: center;
 }
 
 #main-title-small
@@ -260,6 +261,7 @@ section
 {
 	font-size: 20px;
 	font-size: clamp(20px, 3vw, 55px);
+	text-align: center;
 }
 
 #products-section
@@ -276,8 +278,8 @@ section
 #product-cards
 {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	gap: 0.5em;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 2em;
 	padding: 2em 0 5em 0;
 	align-items: center;
 }
@@ -725,6 +727,24 @@ nav li:hover
 
 /* ========================================== CUSTOM MEDIA QUERIES ======================================= */
 
+
+/* HOME PAGE */
+
+@media only screen and (max-width: 616px)
+{
+	#products-text
+	{
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 320px)
+{
+	#product-cards
+	{
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	}
+}
 
 /* PRODUCT PAGE */
 
