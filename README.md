@@ -12,8 +12,8 @@
 </p>
 
 - An e-commerce web app for raw gemstones
-- JAM stack project (Client side rendered)
-- Front end: HTML, vanilla CSS and vanilla JS (with Web Components and Fetch API)
+- A [JAMstack](https://jamstack.wtf/) project (Client side rendered)
+- Front end: HTML, vanilla CSS and vanilla JS (with Web Components API and Fetch API)
 - Back end: PHP (with PDO) and MySQL
 
 ## Contributions
